@@ -46,7 +46,7 @@
 
         <ul>
         {% for model in site.static_files %}
-          {% if model.path contains 'models' && model.path.contains('.stl') %}
+          {% if model.path contains 'models' and model.path contains '.stl' %}
           <div class="modelinfo">
             <h3 class="modeltitle">{{ model.basename }}</h3>
             <img src="images/{{ model.basename }}.jpg" />

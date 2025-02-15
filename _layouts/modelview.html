@@ -83,6 +83,7 @@
                 filename: '../../../models/' + model,
                 color: '#d6d6d6',
                 display: 'flat',
+                rotationy: 1.5708,
               }
             ]
           };
@@ -93,6 +94,7 @@
         
         Wireframe: <input type="checkbox" onclick="stl_viewer.set_display(0, this.checked ? 'wireframe' : 'flat');" />
         Edges: <input type="checkbox" onclick="stl_viewer.set_edges(0, this.checked ? true : false);" />
+        Autorotate: <input type="checkbox" onclick="stl_viewer.set_auto_rotate(this.checked ? true : false);" />
       </section>
 
     </div>

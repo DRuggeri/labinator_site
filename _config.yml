@@ -1,0 +1,5 @@
+lsi: true
+safe: true
+incremental: false
+#theme: jekyll-theme-hacker
+theme: jekyll-theme-midnight

@@ -53,7 +53,7 @@
             <ul>
               <li>Sketchup model: <a href="models/{{ model.basename }}.skp">{{ model.basename }}.skp</a></li>
               <li>STL format: <a href="models/{{ model.basename }}.stl">{{ model.basename }}.stl</a></li>
-              <li><a href="models/index.html?model={{ model.name | url_encode }}">View it in 3D</a></li>
+              <li><a href="modelview.html?model={{ model.name | url_encode }}">View it in 3D</a></li>
             </ul>
           </div>
           {% endif %}

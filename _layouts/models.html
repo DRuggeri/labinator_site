@@ -57,20 +57,20 @@
             <div id="modelviewer_{{ shortname }}" class="modelviewer"></div>
             <script type="text/javascript">
               function load_prog_{{ shortname }}(load_status, load_session) {
-                var loaded=0;
-                var total=0;
+                var loaded_{{ shortname }}=0;
+                var total_{{ shortname }}=0;
             
                 //go over all models that are/were loaded
                 Object.keys(load_status).forEach(function(model_id) {
                   //need to make sure we're on the last loading session (not counting previous loaded models)
                   if (load_status[model_id].load_session==load_session) {
-                    loaded+=load_status[model_id].loaded;
-                    total+=load_status[model_id].total;
+                    loaded_{{ shortname }}+=load_status[model_id].loaded;
+                    total_{{ shortname }}+=load_status[model_id].total;
                   }
                 });
             
                 //set total progress bar
-                document.getElementById("pbtotal_{{ shortname }}").value=loaded/total;
+                document.getElementById("pbtotal_{{ shortname }}").value=loaded_{{ shortname }}/total_{{ shortname }};
               }
             
               function load_done_{{ shortname }}() {

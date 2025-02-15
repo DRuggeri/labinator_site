@@ -1,0 +1,10 @@
+---
+---
+
+@import "{{ site.theme }}";
+.wrapper {
+    max-width: 75%;
+}
+section {
+    max-width: unset;
+}

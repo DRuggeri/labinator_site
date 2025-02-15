@@ -89,7 +89,7 @@
           };
         
         console.log(setup['models'][0]['filename']);
-          var stl_viewer=new StlViewer(document.getElementById("stl_cont"), setup);
+          var stl_viewer=new StlViewer(document.getElementById("modelviewer"), setup);
         </script>
         
         Wireframe: <input type="checkbox" onclick="stl_viewer.set_display(0, this.checked ? 'wireframe' : 'flat');" />

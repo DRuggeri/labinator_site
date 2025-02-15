@@ -54,7 +54,7 @@
             -->
             {% assign shortname=model.basename | slugify | replace: "-" "_" %}
             <progress id="pbtotal_{{ shortname }}" style="height: 5em;width: 90%;position: absolute;" value="0" max="1"></progress>
-            <div id="modelviewer_{{ shortname }}" class="modelviewer"></div>
+            <div id="modelviewer_{{ shortname }}" class="modelviewer" style="display: none"></div>
             <script type="text/javascript">
               function load_prog_{{ shortname }}(load_status, load_session) {
                 var loaded_{{ shortname }}=0;
@@ -75,6 +75,7 @@
             
               function load_done_{{ shortname }}() {
                 document.getElementById("pbtotal_{{ shortname }}").style.display = 'none';
+                document.getElementById("modelviewer_{{ shortname }}").style.display = 'unset';
               }
             
               var setup_{{ shortname }} = {
@@ -87,6 +88,7 @@
                     color: '#d6d6d6',
                     display: 'flat',
                     rotationx: -1.5708,
+                    auto_rotate: true,
                   }
                 ]
               };

@@ -28,6 +28,11 @@ li > ul {
 .modelinfo {
   border: 1px solid gray;
   border-radius: 5px;
+  display: inline-block;
+  max-width: 20%;
+  min-width: 256px;
+  margin: 10px;
+  padding: 5px;
 }
 
 #modelviewer {

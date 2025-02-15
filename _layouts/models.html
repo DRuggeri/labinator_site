@@ -44,7 +44,6 @@
 
         {{ content }}
 
-        <ul>
         {% for model in site.static_files %}
           {% if model.path contains 'models' and model.path contains '.stl' %}
           <div class="modelinfo">
@@ -58,7 +57,6 @@
           </div>
           {% endif %}
         {% endfor %}
-        </ul>
 
       </section>
 

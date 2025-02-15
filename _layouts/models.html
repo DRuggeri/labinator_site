@@ -76,6 +76,7 @@
               function load_done_{{ shortname }}() {
                 document.getElementById("pbtotal_{{ shortname }}").style.display = 'none';
                 document.getElementById("modelviewer_{{ shortname }}").style.display = 'unset';
+                stl_viewer_{{ shortname }}.set_auto_rotate(true);
               }
             
               var setup_{{ shortname }} = {
@@ -87,7 +88,7 @@
                     filename: '../../../models/{{ model.name }}',
                     color: '#d6d6d6',
                     display: 'flat',
-                    rotationx: -1.5708,
+                    rotationx: -1.5708/2,
                     auto_rotate: true,
                   }
                 ]

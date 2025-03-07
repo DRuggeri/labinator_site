@@ -1,0 +1,84 @@
+module:
+  imports:
+  - path: github.com/imfing/hextra
+  # - path: github.com/colinwilson/lotusdocs
+  # - path: github.com/gohugoio/hugo-mod-bootstrap-scss/v5
+
+
+title: Labinator
+baseURL: https://labinator.bitnebula.com/
+theme: github.com/imfing/hextra
+#theme: github.com/colinwilson/lotusdocs
+googleAnalytics: ""
+
+enableEmoji: true
+enableRobotsTXT: true
+enableGitInfo: false
+
+languageCode: en-us
+DefaultContentLanguage: en
+
+#sectionPagesMenu: main
+pagination:
+  pagerSize: 10
+
+imaging:
+  quality: 90
+  resampleFilter: Lanczos
+  exif:
+    disableLatLong: true
+
+taxonomies:
+  category: categories
+  tag: tags
+
+summaryLength: 70
+pluralizelisttitles: false
+
+enableInlineShortcodes: true
+
+params:
+  # https://lotusdocs.dev/docs/reference/configuration/
+  social:
+    github: DRuggeri/labinator_site
+  docs:
+    darkMode: true
+  flexsearch:
+    enabled: false
+
+  # https://imfing.github.io/hextra/docs/guide/configuration/
+  navbar:
+    displayTitle: true
+    displayLogo: true
+    logo:
+      path: images/logo.svg
+      dark: images/logo-dark.svg
+      link: /
+      width: 24
+      height: 24
+  theme:
+    default: dark
+  page:
+    width: full
+
+  editURL:
+    enable: true
+    base: "https://github.com/DRuggeri/labinator_site/edit/main/content"
+
+menu:
+  main:
+    - name: Home
+      weight: 1
+      url: /
+      params:
+        icon: home
+    - name: LinkedIn
+      weight: 2
+      url: https://www.linkedin.com/in/danielruggeri/
+      params:
+        icon: linkedin
+    - name: GitHub
+      weight: 3
+      url: https://github.com/DRuggeri
+      params:
+        icon: github

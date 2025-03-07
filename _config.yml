@@ -1,8 +1,0 @@
-lsi: true
-safe: true
-incremental: false
-#theme: jekyll-theme-hacker
-theme: jekyll-theme-midnight
-title: Labinator
-description: Documenting and sharing the fun/super awesome lab for experimentation with bare metal, virtualization, and containerization
-show_downloads: false

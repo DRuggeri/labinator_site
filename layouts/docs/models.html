@@ -1,0 +1,86 @@
+{{ define "main" }}
+  <div class='hx-mx-auto hx-flex {{ partial "utils/page-width" . }}'>
+    {{ partial "sidebar.html" (dict "context" .) }}
+    {{ partial "toc.html" . }}
+    <article class="hx-w-full hx-break-words hx-flex hx-min-h-[calc(100vh-var(--navbar-height))] hx-min-w-0 hx-justify-center hx-pb-8 hx-pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+      <main class="hx-w-full hx-min-w-0 hx-max-w-6xl hx-px-6 hx-pt-4 md:hx-px-12">
+        {{ partial "breadcrumb.html" . }}
+        <div class="content">
+          {{ if .Title }}<h1>{{ .Title }}</h1>{{ end }}
+          {{ .Content }}
+
+
+          <script src="/js/modelviewer/stl_viewer.min.js"></script>
+
+          <div class="hextra-cards hx-mt-4 hx-grid not-prose" style="--hextra-cards-grid-cols: 3;">
+          {{ range $model := (readDir "static/models") }}
+              {{  if strings.Contains $model.Name ".stl" }}
+              {{ $baseName := strings.Replace $model.Name ".stl" "" }}
+              <div class="modelinfo ">
+                <h3 class="modeltitle">{{ $baseName }}</h3>
+                {{ $shortname := strings.Replace ( $baseName | urls.Anchorize ) "-" "_" | safeJS }}
+                <progress id="pbtotal_{{ $shortname }}" class="modelprogress" value="0" max="1"></progress>
+                <div id="modelviewer_{{ $shortname }}" class="modelviewer"></div>
+
+                <script type="text/javascript">
+                  function load_prog_{{ $shortname }}(load_status, load_session) {
+                  var loaded_{{ $shortname }}=0;
+                  var total_{{ $shortname }}=0;
+              
+                  //go over all models that are/were loaded
+                  Object.keys(load_status).forEach(function(model_id) {
+                      //need to make sure we're on the last loading session (not counting previous loaded models)
+                      if (load_status[model_id].load_session==load_session) {
+                      loaded_{{ $shortname }}+=load_status[model_id].loaded;
+                      total_{{ $shortname }}+=load_status[model_id].total;
+                      }
+                  });
+              
+                  //set total progress bar
+                  document.getElementById("pbtotal_{{ $shortname }}").value=loaded_{{ $shortname }}/total_{{ $shortname }};
+                  }
+              
+                  function load_done_{{ $shortname }}() {
+                  document.getElementById("pbtotal_{{ $shortname }}").style.display = 'none';
+                  document.getElementById("modelviewer_{{ $shortname }}").style.display = 'unset';
+                  stl_viewer_{{ $shortname }}.set_auto_rotate(true);
+                  }
+              
+                  var setup_{{ $shortname }} = {
+                  loading_progress_callback: load_prog_{{ $shortname }},
+                  all_loaded_callback: load_done_{{ $shortname }},
+                  models: [
+                      { 
+                      id: 0,
+                      filename: '../../../models/{{ $model.Name }}',
+                      color: '#d6d6d6',
+                      display: 'flat',
+                      rotationx: -1.5708,
+                      auto_rotate: true,
+                      }
+                  ]
+                  };
+              
+              console.log(setup_{{ $shortname }}['models'][0]['filename']);
+                  var stl_viewer_{{ $shortname }}=new StlViewer(document.getElementById("modelviewer_{{ $shortname }}"), setup_{{ $shortname }});
+              </script>
+            
+                <ul>
+                    <li><a href="../../models/{{ $baseName }}.skp">Sketchup model</a></li>
+                    <li><a href="../../models/{{ $baseName }}.stl">STL model</a></li>
+                    <li><a href="modelview.html?model={{ $model.Name | urls.URLize }}">View it in 3D</a></li>
+                </ul>
+              </div>  
+              
+              {{ end }}
+          {{ end }}
+          </div>
+
+        </div>
+        {{ partial "components/last-updated.html" . }}
+        {{ partial "components/pager.html" . }}
+        {{ partial "components/comments.html" . }}
+      </main>
+    </article>
+  </div>
+{{ end }}

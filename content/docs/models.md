@@ -1,6 +1,6 @@
 ---
+title: Models
 layout: models
-title: Models for Labinator
 ---
 
 One of the principles of Labinator is that it had to be portable. While there are a lot of cheap/easy ways to meet this requirement, it certainly doesn't cause any harm to add a little flair or polish to everything. Besides... home labbing is an awesome hobby - so why not incorporate *more hobbies* into the process?

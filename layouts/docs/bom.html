@@ -1,0 +1,89 @@
+{{ define "main" }}
+    <div class='hx-mx-auto hx-flex {{ partial "utils/page-width" . }}'>
+        {{ partial "sidebar.html" (dict "context" .) }}
+        {{ partial "toc.html" . }}
+        <article class="hx-w-full hx-break-words hx-flex hx-min-h-[calc(100vh-var(--navbar-height))] hx-min-w-0 hx-justify-center hx-pb-8 hx-pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+            <main class="hx-w-full hx-min-w-0 hx-max-w-6xl hx-px-6 hx-pt-4 md:hx-px-12">
+            {{ partial "breadcrumb.html" . }}
+            <div class="content">
+                {{ if .Title }}<h1>{{ .Title }}</h1>{{ end }}
+                {{ .Content }}
+                <br />
+
+                <div id="bomfilters">
+                </div>
+                <script src="/js/jquery-3.7.1.min.js"></script>
+                <script type="text/javascript">
+                    let parts = [];
+                    {{ $purposes := slice }}
+                    {{ range $index, $item := .Params.parts }}
+                        parts[{{$index}}] = {
+                            item: {{ $item.item }},
+                            description: {{ $item.description }},
+                            link: {{ $item.link }},
+                            price: {{ $item.price }},
+                            purpose: {{ $item.purpose }},
+                            quantity: {{ $item.quantity }},
+                        }
+                        {{ $purposes = ($purposes | append $item.purpose) }}
+                    {{ end }}
+
+                    {{ $purposes = ( $purposes | uniq ) }}
+                    {{ range $purpose := $purposes }}
+                    
+                    $("#bomfilters").append($('<input type="checkbox" id="filter{{ $purpose }}" onclick="renderTable()" checked=true />')) 
+                    $("#bomfilters").append($('<label for="filter{{ $purpose }}"/>{{ $purpose }}</label>')) 
+                    {{ end }}
+
+                    var t = document.getElementById("bom");
+                    function renderTable() {
+                        var total = 0.0;
+                        $("#bom tbody tr").remove();
+                        parts.forEach( item => {
+                            if ($(`#filter${item['purpose']}`)[0].checked) {
+                                var row = $('<tr>');
+                                var link = $('<a>').append(item.item);
+                                link.attr("href", item.link);
+                                row.append($('<td class="bomlink">').append(link));
+                                row.append($('<td class="bomdescription">').append(item.description));
+                                row.append($('<td class="bompurpose">').append(item.purpose));
+                                row.append($('<td class="bomcost">').append(`<span class="bomprice">$${item.price.toFixed(2)}</span> <span class="bomquantity">x${item.quantity}</span>`));
+                                $("#bom tbody").append(row);
+                                total += item.price * item.quantity;
+                            }
+                        });
+                        var finalrow = $('<tr>');
+                        finalrow.append($('<td colspan=3>').append("Total"));
+                        finalrow.append($('<td>').append(`<span class="bomtotal">$${(Math.round(total * 100) / 100).toFixed(2)}</span>`));
+                        $("#bom tbody").append(finalrow);
+                    }
+                    renderTable();
+                </script>
+                <table id="bom">
+                    <thead>
+                        <tr>
+                            <th>Item</th>
+                            <th>Description</th>
+                            <th>Purpose</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    {{ range $index, $item := .Params.parts }}
+                        <tr>
+                            <td>{{ $item.item }}</td>
+                            <td>{{ $item.description }}</td>
+                            <td>{{ $item.price }} x {{ $item.quantity }}</td>
+                            <td></td>
+                        <tr/>
+                {{ end }}
+
+                <script>renderTable()</script>
+                </table>
+                </div>
+                {{ partial "components/last-updated.html" . }}
+                {{ partial "components/pager.html" . }}
+                {{ partial "components/comments.html" . }}
+            </main>
+        </article>
+    </div>
+{{ end }}

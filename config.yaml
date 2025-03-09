@@ -13,7 +13,7 @@ googleAnalytics: ""
 
 enableEmoji: true
 enableRobotsTXT: true
-enableGitInfo: false
+enableGitInfo: true
 
 languageCode: en-us
 DefaultContentLanguage: en
@@ -31,6 +31,11 @@ imaging:
 taxonomies:
   category: categories
   tag: tags
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
 
 summaryLength: 70
 pluralizelisttitles: false

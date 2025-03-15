@@ -10,4 +10,10 @@ I primarily wanted a cheap way to experiment with server orchestration from virt
 At that time, the idea of a mobile lab wasn't even on the radar.
 But as I experimented with some of the [https://talos.dev](newer technologies) making their presence known on the scene (and even some of the [older ones](https://en.wikipedia.org/wiki/Preboot_Execution_Environment) used in neat ways), I was inspired to take the lab on the road to *show* people how neat things can get.
 
+#### Some cool labinator tidbits
+* VLAN-supporting isolated LAN with airgapped operation
+* A custom [ESP32](https://www.espressif.com/en/products/socs/esp32)-driven set of relays to toggle power buttons on the gear via software
+* Portably mounted hardware with [purpose-made 3D models](models) to secure the gear
+* An internal CA creating and dynamically renewing certificates every 16 hours or so
+
 If you're curious to know more or have comments/etc to share, reach out to me on LinkedIn or open a PR/Issue on GitHub (links are in the upper right corner).

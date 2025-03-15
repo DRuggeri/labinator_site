@@ -24,6 +24,72 @@ Finally, it is worth pointing out that many of us technology leaders (nerds 🤓
 
 Consider these goals as you wander deeper into the abyss of labinator. Some will not apply to your use case and some will be seemingly silly for what you want to try/do. That's OK, rip that part out of your own lab/experiments.
 
+### Why cheap hardware?
+Simply put, cheap hardware can be replaced easily and it also stands the best chance of being replicated by anyone interested in building such a lab.
+While the [models](../models) used to secure the lab to the board are designed specifically for THIS lab, the hardware used in the lab is easy to swap out with anything else that has equivalent functionality.
+
+### Why an isolated network?
+Labinator is designed to be used for several kinds of experiments.
+Having a principle of being in an isolated network frees the lab itself from needing to worry about a supporting network.
+Want to try out an IPv6 only LAN?
+Looking to play around with [iPXE](https://ipxe.org/)?
+Want to try something clever with your DHCP servers?
+Interested in seeing what happens when network partitions occur?
+
+These things and more are much more sane to set up when the lab is in its own isolated network.
+
+### Why airgap operation?
+Since the lab needs to be portable and because it is sitting in an isolated network, it makes sense to expect the lab to be functional without external network connectivity.
+At the same time, I am experimenting with different technologies that I'd like to see used at work - and that environment is always airgapped.
+By forcing the airgap requirement up front, it means the experiments need to be built in ways that are much more likely to succeed in a real world enterprise deployment.
+
+### Why Open Source?
+Yes, some of the experiments to run may end up in an enterprise environment, but aside from Labinator, I also run a fairly complex home lab.
+Building Labinator in a way that doesn't rely on proprietary software or software that is not freely available means that the lessons learned (the configurations built) are able to be applied directly to my own home lab.
+Additionally, many of the FOSS projects used in Labinator are best in breed such that they can reasonably be expected to exist in a well funded enterprise environment, too.
+
+Beside all of this, I'm a big fan of Open Source anyway.
+It's without a doubt that I've benefitted from FOSS participation more than I've ever been able to give!
+
+### Why flexible configuration?
+I don't know what I don't know.
+The physical components of Labinator must be able to be composed in a number of ways that will support the *current* tests I want to run, but also to support testing use cases I haven't thought of.
+This made it important to ensure that an actual router (rather than just switching) is in the lab.
+Additionally, the network has to support VLANs to create arbitrary separations amongst the nodes.
+Speaking of nodes, using a multiple of three ensures that nodes can be carved up in support of consensus-based protocols.
+
+### Why security on the data plane?
+Sure, to run experiments you may not need great security.
+Sometimes it's enough to just see how things react when [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security) isn't used.
+Sometimes it's fine if you want to just get a feel for software when the environment isn't airgapped.
+That doesn't quite work for me, though...
+We take security very seriously where I work.
+Since a lot of the experiments I am running I hope to bring to $dayjob anyway, it makes sense to just bake security in from the beginning.
+Besides, a lot of the lessons and best practices used at work get applied to my own network anyway.
+Once you know how easy it can be to infiltrate/damage an environment and once you see the kind of havoc it can wreak, it's just impossible to ignore security in your own lab.
+
+### Why an easy rebuild?
+A principle I've encouraged at work for many of my teams has been the idea that anything we build should be able to be "nuked and paved".
+This encourages automation of repeatable tasks which also creates consistency in outputs.
+Even in my own homelab, I use extensive automation for managing the gear such that any machine can be replaced easily and "rehydrated" to be back in business without too much trouble.
+At first, this may seem like a lot of work for little benefit... but I've been in the game long enough to know better.
+Investing in automation and repeatability begins paying off after the first hardware failure - and you get returns every time you need to upgrade gear.
+
+Setting philosophy aside, this is a lab - it's MADE to break!
+Breaking things means fixing things, and after I've trashed a lab (accidentally or on purpose) I don't want to spend the time figuring out how to unbreak it.
+
+### Why should it be portable?
+I could say that I want Labinator to be portable for a handful of contrived reasons, but the main reason is because I want it to have the "wow factor".
+Yes, I could record videos of the experiments being run or capture scripted output of what happens when a certain thing changes in the lab, but being able to have the lab do something in an unscripted fashion also just makes things more "real".
+There's just something about seeing it all in action, in person, that demystifies the technology at play.
+
+With [labwatch](../subprojects/labwatch) monitoring and controlling Labinator, it's also possible to trigger various scenarios based on your own heart's whims.
+Want to create a partition between nodes in a Kubernetes cluster? Give it a shot!
+Want to do the same thing, but with the lab set up as a few baremetal nodes running something else? Sure!
+Having that flexibility coupled with the isolated network really begs for the lab to be physically right in front of you.
+
+Which is cool and all... but it's still really *awesome* to build such a thing that can be dragged around to show people!
+
 ## What it isn't
 Although labinator may serve as a reference implementation suitable for your environment's foundation, it does not try to be all things to all people. Some compromises were made for the sake of operability and experimentation. A few key things to call out:
 

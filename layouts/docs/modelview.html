@@ -18,54 +18,14 @@
 
           <script src="/js/modelviewer/stl_viewer.min.js"></script>
 
-          <progress id="pbtotal" style="height: 5em;width: 90%;position: absolute;" value="0" max="1"></progress>
-          <div id="modelviewer"></div>
-          <script type="text/javascript">
-            function load_prog(load_status, load_session) {
-              var loaded=0;
-              var total=0;
+          {{partial "model_viewer" (dict
+            "shortName" "large"
+            "path" ( path.Join "../../../models/" .Params.model )
+          )}}
           
-              //go over all models that are/were loaded
-              Object.keys(load_status).forEach(function(model_id) {
-                //need to make sure we're on the last loading session (not counting previous loaded models)
-                if (load_status[model_id].load_session==load_session) {
-                  loaded+=load_status[model_id].loaded;
-                  total+=load_status[model_id].total;
-                }
-              });
-          
-              //set total progress bar
-              document.getElementById("pbtotal").value=loaded/total;
-            }
-          
-            function load_done() {
-              document.getElementById("pbtotal").style.display = 'none';
-              stl_viewer.set_auto_rotate(true);
-            }
-          
-            let model = {{ .Params.model }}
-          
-            var setup = {
-              loading_progress_callback: load_prog,
-              all_loaded_callback: load_done,
-              models: [
-                { 
-                  id: 0,
-                  filename: '../../../models/' + model,
-                  color: '#d6d6d6',
-                  display: 'flat',
-                  rotationx: -1.5708,
-                  auto_rotate: true,
-                }
-              ]
-            };
-          
-            var stl_viewer=new StlViewer(document.getElementById("modelviewer"), setup);
-          </script>
-          
-          Wireframe: <input type="checkbox" onclick="stl_viewer.set_display(0, this.checked ? 'wireframe' : 'flat');" />
-          Edges: <input type="checkbox" onclick="stl_viewer.set_edges(0, this.checked ? true : false);" />
-          Autorotate: <input type="checkbox" checked="true" onclick="stl_viewer.set_auto_rotate(this.checked ? true : false);" />
+          Wireframe: <input type="checkbox" onclick="stl_viewer_large.set_display(0, this.checked ? 'wireframe' : 'flat');" />
+          Edges: <input type="checkbox" onclick="stl_viewer_large.set_edges(0, this.checked ? true : false);" />
+          Autorotate: <input type="checkbox" checked="true" onclick="stl_viewer_large.set_auto_rotate(this.checked ? true : false);" />
           <span id="caminfo"></span>
 
         </div>

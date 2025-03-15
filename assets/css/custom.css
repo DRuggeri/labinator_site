@@ -27,13 +27,15 @@
     width: 100%;
 }
   
-#modelviewer {
-    height: 95vh;
-    border: 1px solid gray;
+#modelviewer_large {
+    height: 90vh;
     margin: 10px;
-    border-radius: 10px;
 }
 
+#modelviewer_large > canvas {
+    border-radius: 10px;
+    border: 1px solid gray;
+}
 .hextra-footer {
     display: none;
 }

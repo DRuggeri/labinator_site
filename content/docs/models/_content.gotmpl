@@ -1,0 +1,30 @@
+{{ $ctx := . }}
+{{ range $model := (readDir "static/models") }}
+    {{  if strings.Contains $model.Name ".stl" }}
+
+        {{ $path := strings.TrimSuffix ".stl" $model.Name | urlize }}
+        {{ $baseName := strings.Replace $model.Name ".stl" "" }}
+        {{ $shortName := strings.Replace ( $baseName | urls.Anchorize ) "-" "_" | safeJS }}
+
+        {{ $content := dict
+            "mediaType" "text/markdown"
+            "value" $baseName
+        }}
+        {{ $params := dict
+            "model" $model.Name
+        }}
+        {{ $sidebar := dict
+            "exclude" "true"
+        }}
+        {{ $page := dict
+            "content" $content
+            "kind" "page"
+            "path" $path
+            "title" $baseName
+            "layout" "modelview"
+            "params" $params
+            "sidebar" $sidebar
+        }}
+        {{ $ctx.AddPage $page }}
+    {{ end }}
+{{ end }}

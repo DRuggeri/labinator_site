@@ -16,39 +16,40 @@
           {{ range $model := (readDir "static/models") }}
               {{  if strings.Contains $model.Name ".stl" }}
               {{ $baseName := strings.Replace $model.Name ".stl" "" }}
+              {{ $shortName := strings.Replace ( $baseName | urls.Anchorize ) "-" "_" | safeJS }}
+
               <div class="modelinfo ">
                 <h3 class="modeltitle">{{ $baseName }}</h3>
-                {{ $shortname := strings.Replace ( $baseName | urls.Anchorize ) "-" "_" | safeJS }}
-                <progress id="pbtotal_{{ $shortname }}" class="modelprogress" value="0" max="1"></progress>
-                <div id="modelviewer_{{ $shortname }}" class="modelviewer"></div>
+                <progress id="pbtotal_{{ $shortName }}" class="modelprogress" value="0" max="1"></progress>
+                <div id="modelviewer_{{ $shortName }}" class="modelviewer"></div>
 
                 <script type="text/javascript">
-                  function load_prog_{{ $shortname }}(load_status, load_session) {
-                  var loaded_{{ $shortname }}=0;
-                  var total_{{ $shortname }}=0;
+                  function load_prog_{{ $shortName }}(load_status, load_session) {
+                  var loaded_{{ $shortName }}=0;
+                  var total_{{ $shortName }}=0;
               
                   //go over all models that are/were loaded
                   Object.keys(load_status).forEach(function(model_id) {
                       //need to make sure we're on the last loading session (not counting previous loaded models)
                       if (load_status[model_id].load_session==load_session) {
-                      loaded_{{ $shortname }}+=load_status[model_id].loaded;
-                      total_{{ $shortname }}+=load_status[model_id].total;
+                      loaded_{{ $shortName }}+=load_status[model_id].loaded;
+                      total_{{ $shortName }}+=load_status[model_id].total;
                       }
                   });
               
                   //set total progress bar
-                  document.getElementById("pbtotal_{{ $shortname }}").value=loaded_{{ $shortname }}/total_{{ $shortname }};
+                  document.getElementById("pbtotal_{{ $shortName }}").value=loaded_{{ $shortName }}/total_{{ $shortName }};
                   }
               
-                  function load_done_{{ $shortname }}() {
-                  document.getElementById("pbtotal_{{ $shortname }}").style.display = 'none';
-                  document.getElementById("modelviewer_{{ $shortname }}").style.display = 'unset';
-                  stl_viewer_{{ $shortname }}.set_auto_rotate(true);
+                  function load_done_{{ $shortName }}() {
+                  document.getElementById("pbtotal_{{ $shortName }}").style.display = 'none';
+                  document.getElementById("modelviewer_{{ $shortName }}").style.display = 'unset';
+                  stl_viewer_{{ $shortName }}.set_auto_rotate(true);
                   }
               
-                  var setup_{{ $shortname }} = {
-                  loading_progress_callback: load_prog_{{ $shortname }},
-                  all_loaded_callback: load_done_{{ $shortname }},
+                  var setup_{{ $shortName }} = {
+                  loading_progress_callback: load_prog_{{ $shortName }},
+                  all_loaded_callback: load_done_{{ $shortName }},
                   models: [
                       { 
                       id: 0,
@@ -61,14 +62,14 @@
                   ]
                   };
               
-              console.log(setup_{{ $shortname }}['models'][0]['filename']);
-                  var stl_viewer_{{ $shortname }}=new StlViewer(document.getElementById("modelviewer_{{ $shortname }}"), setup_{{ $shortname }});
+              console.log(setup_{{ $shortName }}['models'][0]['filename']);
+                  var stl_viewer_{{ $shortName }}=new StlViewer(document.getElementById("modelviewer_{{ $shortName }}"), setup_{{ $shortName }});
               </script>
             
                 <ul>
                     <li><a href="../../models/{{ $baseName }}.skp">Sketchup model</a></li>
                     <li><a href="../../models/{{ $baseName }}.stl">STL model</a></li>
-                    <li><a href="modelview.html?model={{ $model.Name | urls.URLize }}">View it in 3D</a></li>
+                    <li><a href="{{ $baseName | urls.URLize }}">View it in 3D</a></li>
                 </ul>
               </div>  
               

@@ -1,0 +1,78 @@
+{{ define "main" }}
+  <div class='hx-mx-auto hx-flex {{ partial "utils/page-width" . }}'>
+    {{ partial "sidebar.html" (dict "context" .) }}
+    {{ partial "toc.html" . }}
+    <article class="hx-w-full hx-break-words hx-flex hx-min-h-[calc(100vh-var(--navbar-height))] hx-min-w-0 hx-justify-center hx-pb-8 hx-pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+      <main class="hx-w-full hx-min-w-0 hx-max-w-6xl hx-px-6 hx-pt-4 md:hx-px-12">
+        {{ partial "breadcrumb.html" . }}
+        <div class="content">
+          {{ if .Title }}<h1>{{ .Title }}</h1>{{ end }}
+
+          {{ .Content }}
+
+          {{ $baseName := strings.Replace .Params.model ".stl" "" }}
+          <ul>
+            <li><a href="../../../models/{{ $baseName }}.skp">Sketchup model</a></li>
+            <li><a href="../../../models/{{ $baseName }}.stl">STL model</a></li>
+          </ul>
+
+          <script src="/js/modelviewer/stl_viewer.min.js"></script>
+
+          <progress id="pbtotal" style="height: 5em;width: 90%;position: absolute;" value="0" max="1"></progress>
+          <div id="modelviewer"></div>
+          <script type="text/javascript">
+            function load_prog(load_status, load_session) {
+              var loaded=0;
+              var total=0;
+          
+              //go over all models that are/were loaded
+              Object.keys(load_status).forEach(function(model_id) {
+                //need to make sure we're on the last loading session (not counting previous loaded models)
+                if (load_status[model_id].load_session==load_session) {
+                  loaded+=load_status[model_id].loaded;
+                  total+=load_status[model_id].total;
+                }
+              });
+          
+              //set total progress bar
+              document.getElementById("pbtotal").value=loaded/total;
+            }
+          
+            function load_done() {
+              document.getElementById("pbtotal").style.display = 'none';
+              stl_viewer.set_auto_rotate(true);
+            }
+          
+            let model = {{ .Params.model }}
+          
+            var setup = {
+              loading_progress_callback: load_prog,
+              all_loaded_callback: load_done,
+              models: [
+                { 
+                  id: 0,
+                  filename: '../../../models/' + model,
+                  color: '#d6d6d6',
+                  display: 'flat',
+                  rotationx: -1.5708,
+                  auto_rotate: true,
+                }
+              ]
+            };
+          
+            var stl_viewer=new StlViewer(document.getElementById("modelviewer"), setup);
+          </script>
+          
+          Wireframe: <input type="checkbox" onclick="stl_viewer.set_display(0, this.checked ? 'wireframe' : 'flat');" />
+          Edges: <input type="checkbox" onclick="stl_viewer.set_edges(0, this.checked ? true : false);" />
+          Autorotate: <input type="checkbox" checked="true" onclick="stl_viewer.set_auto_rotate(this.checked ? true : false);" />
+          <span id="caminfo"></span>
+
+        </div>
+        {{ partial "components/last-updated.html" . }}
+        {{ partial "components/pager.html" . }}
+        {{ partial "components/comments.html" . }}
+      </main>
+    </article>
+  </div>
+{{ end }}

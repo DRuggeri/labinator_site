@@ -1,0 +1,253 @@
+ATX Mount:
+  time: 18:36:37
+  filament: 67.09
+  quantity: 1
+  prototypes: 3
+  content: |-
+    Most interestingly about this mount is the fact that it made me realize how out of square my 3D printer is.
+    Because of the size of the mount and the need to print it "sideways" to fit the print bed, it was fairly tall coming from the print bed.
+    When I started test fitting the power supply into the mount, my usual .3mm of embiggening for the actual device to fit led to WAY too tight of a fit.
+    On investigation, this turned out to be because of how skewed the print gets as the Z axis increases.
+    Even further, when I test fitted the mount onto the board, it was painfully obvious how out of squre the base was given that the board is nice and squarely cut.
+    Not a big deal - PLA can flex a bit before breaking so this one needed some elbow grease to fit optimally.
+    Once fit on the board, heating up the bushing to the point that the plastic started to melt allowed the bushing to move a bit to reduce strain.
+
+    The first prototype fit the ATX panel screw holes well given that the [ATX spec defines where they should be](https://www.silverstonetek.com/en/tech-talk/10055).
+    However, the power supply in hand turned out to be deeper than standard spec, so it necessitated a second print to fit the PSU and also keep the fan opening clear.
+
+    This was the only print that I decided to do some manual post processing to, primarily because of the nearly day-long print time, after final fitment.
+    The power switch toggle and screw holes for the power cable itself slightly protruded into border.
+    No matter... that's nothing two minutes with some wood files couldn't fix!
+
+Cable Comb:
+  time: 00:20:36
+  filament: .89
+  quantity: 25
+  prototypes: 2
+  content: |-
+    These little guys were kind of fun but also a bit nervewracking.
+    For the design, I wanted a cable comb that could hold just the right amount of wires for a single worker node, but also be flexible enough to use for the mess of wires under the worker nodes.
+    The end result was simply a cable comb that could comfortably hold two Cat 6 cables and a third opening on the bottom to hold the power button toggle wires.
+    Before designing anything, I had to do a bit of thinking for how to mount these combs without the bushing being blocked but also to print in a way that the layer lines wouldn't coincide with the stresses the cable would exert on the openings.
+    Since 3D prints are weakest along the layer lines, this meant the "bottom" of the print would be the side of the comb.
+
+    Only two prototypes were needed for this one because I had already designed some parametric cable combs for mounting wires headed to my data rack.
+    One clever design facet to point out is that the comb has a small opening at the bottom and a notch at the top to catch a cable securing ziptie or velcro strap.
+    I knew this would be important because the bottom wires would require doubling up several runs such that they won't fit "in" the comb.
+
+ESPLCD Button:
+  time: 00:07:25
+  filament: .09
+  quantity: 1
+  prototypes: 2
+  content: |-
+    This little guy isn't very special. It's just a button that fits into the hole on the top of the [ESPLCD Screen](../esplcd-screen) model.
+    It didn't take many prototypes to get right because it is so simple.
+
+    The first prototype didn't work out very well because of the limited amount of space between the inside of the [ESPLCD Screen](../esplcd-screen) and the actual button on the board.
+    This necessitated creating a small "divot" on the inside bottom of the button as an offset.
+    At the very small scale of the layer height (only .2mm) for these prints, I don't know if that little divot even did much!
+
+ESPLCD Screen:
+  time: 01:48:50
+  filament: 8.25
+  quantity: 1
+  prototypes: 3
+  content: |-
+    Thankfully this one was not terrible to create because I had already made and tested the [LCD - HDMI Screen](../lcd-hdmi-screen).
+    For all intents and purposes, this is the same model.
+
+    To get it to fit the slightly different dimensions of the screen, the only things that had to be adjusted were the screw hole mounting offsets, screen offsets, and side openings.
+    The side openings were a bit tricky which led to creating three different prototypes.
+    The first prototype, I guess due to some measuring error, had the button hole several mm away from where it needed to be.
+    That wasn't a big deal because the side holes for the power/HDMI in were also a bit off (I guess it's impossible for me to hit everything right on the money on the first try).
+    As is typical, the second prototype brought everything much closer to where it needed to be while the third was the final dial-in prototype.
+
+Holster with Screen:
+  time: 11:48:47
+  filament: 24.1
+  quantity: 6
+  prototypes: 6
+  content: |-
+    These were the (least) fun ones! It required quite a bit of noodling on how to set device up so the ports were accessible and the device could be removed from the holster for maintenance.
+    I decided I wanted an open-side design fairly early to keep accessing the ports simple, reduce the amount of waste filament, and strike that nice visual appeal.
+    Because the [LCD - HDMI Screen](../lcd-hdmi-screen) needed to be mounted on top of this, I had to finish that model's prototypes and production print first to determine the exact dimensions of the "stilts" that reach up to hold the screen.
+    With the [LCD - HDMI Screen](../lcd-hdmi-screen) being secured by screws, it also required me to ensure accurate depth (and access!) to the fastening points from under neath which led to an "open" bottom.
+    I'm glad I realized that because there would've been no way to screw the screen on!
+    Similarly, to secure the model to the board, I placed 4mm holes.
+    These holes needed to be strategically placed so they did not sit in the way of the "feet" on the bottom of the computer as it slid in or out of the holster.
+    After having decided that I wanted the machines to slide into the holster, I needed to figure out how to secure them in place.
+    The end solution was to capture the power cord in one of the side holes so it would serve as a slight lynchpin.
+    There is enough tension on the computer's feet and the bottom of the model due to the top pressing down on it that the computer should be secure enough without the power port lynch pin... but it's nice to have that extra security.
+  
+    All told... the initial prototypes underwent several changes.
+    The first prototype used a 2mm wall which turned out to be way too weak at the points where the corners came together.
+    The amount of filament on those corners was just not enough to be able to take hardly any abuse.
+    Several iterations were needed to get the height, width, depth just right so the computers would slide in/out with the correct amount of tension.
+    The monitor "stilts" also took a fair amount of fiddling to get right as well given the tight space and unique design.
+
+    The resulting model turned out nicely, though at least one of the corners ended up cracking/breaking during mounting.
+
+Holster:
+  time: 07:41:45
+  filament: 20.48
+  quantity: 1
+  prototypes: 1
+  content: |-
+    One of the computers sits off to the side (I call it "boss") under the larger [LCD Touch Screens](../lcd-touch-screen).
+    Since this machine drives the two monitors above it, and because they are both a fair bit larger than the dimensions of the computer, it was an easy decision to just take the [holster with screen](../holster-with-screen/) model and chop off the "stilts".
+    
+    With such a simple alteration to an existing design that works well, this only required one prototype to confirm fitments.
+    I could have just as well printed the production model from the first attempt, but my luck usually doesn't work that way.
+
+LCD - HDMI Screen:
+  time: 02:11:25
+  filament: 9.13
+  quantity: 6
+  prototypes: 5
+  content: |-
+    I wanted to be sure that each computer's screen could be visible in the lab so one could see everything going on across the whole lab at once.
+    The solution to this was to get a handful of small LCD screens that are each paired to a computer in the lab.
+    Since space is at a premium in the lab's design, these small screens would need to be mounted above the computers themselves.
+    The [holster with screen](../holster-with-screen/) model lets the screens sit on top, mounted from the underside which leaves this model especially simple.
+    This model only required the creation of a box that sits on top of the screen as a bezel.
+    While the lab would've functioned just fine with the screens' boards being exposed to the open air, it just wouldn't have had much of a finished look.
+
+    Maybe I should've just left well enough alone!
+    This model took many attempts to get right due to the fact that the manufacturer doesn't publish specs for the mounting holes and sizes.
+    This meant that each attempt had to be built or tweaked from manually measured data - which always leads to suboptimal part fit.
+    The first prototype or two was too tight to even fit the screen into the bezel so checking the fit of other through holes in the design couldn't be done.
+    Additionally, the size of the screw hole standoffs required a few iterations to get right because of where the screen physically strap.
+    To top it off, at least one of the prototypes (maybe more) needed to be tweaked because I moved the screen opening up when I should have moved it down.
+
+    It may have put up a fight, but I especially appreciate the finished look of bezels for all of the lab screens!
+
+LCD - Touch Mount:
+  time: 02:00:58
+  filament: 5.23
+  quantity: 4
+  prototypes: 2
+  content: |-
+    After having built the [LCD touch screen](../lcd-touch-screen) bezel, and after having learned lots of lessons from the [holster with screen](../holster-with-screen) model, this one couldn't have been easier.
+    It simply needed to align the holes with the underside of the touch screen mounting points.
+    One thing detected early on with the design is that an access hole would be needed from the underside in order to screw the screen and mount into the [LCD touch screen](../lcd-touch-screen) bezel.
+    It was a good catch during design phase because missing that detail would have required a fix in another prototype.
+
+    With such a simple design, this one almost got away with just a single prototype before production.
+    Everything fit fine on the first go - but I didn't like the positioning of the mounting holes to the board, so I adjusted them a bit for the next prototype and also added a few angles to the overall design.
+
+LCD - Touch Screen:
+  time: 03:47:47
+  filament: 16.67
+  quantity: 2
+  prototypes: 3
+  content: |-
+    While the [LCD - HDMI Screen](../lcd-hdmi-screen) kinda kicked my butt with its design, these larger touch screens were a piece of comparative cake.
+    Since the smaller design was set and proven, this design only required adjustments for the scale and the openings.
+
+    This *should have been* a one-prototype build, but the manufacturer did not publish specs for the screen so all measurements were manual.
+    Given the manual measurements, the classic first swag/dial in/fine tune prototype design approach played out.
+    Interestingly, the thing that gave me the most trouble for these bezels was the tendency for the print to warp and curl away from the print bed.
+    This was especially apparent because I twisted the model 45 degrees on the print bed so the lines would be running parallel to the long side of the print.
+    As those that have printed a while know: long lines = more curling tendency, especially on the corners.
+
+Platform corner leg:
+  time: 03:01:49
+  filament: 10.88
+  quantity: 4
+  prototypes: 2
+  content: |-
+    Since I wanted the bulk of the lab to be mounted from below, this meant that the board itself couldn't sit flat.
+    Sure, the screws could be countersunk into the wood so the board sat flat on the bottom, but I only have a 1/2" board to work with.
+    Besides... there's nothing wrong with adding a bit of a "finished flair" to the overall build.
+    This design was quite simple to make.
+    It aims to capture the edge banding of the wood and also provide cover the joint of the edge band where it meets the next side and also where it meets the board itself.
+
+    With such a simple design, only one prototype was needed to dial in the exact height needed.
+    Unfortunately, after I did a production run of four of these, the edge banding came in and turned out to be just slightly thicker than the actual board.
+    This meant I had to adjust the height again (another two prototypes) and re-run.
+
+Platform edge leg:
+  time: 02:02:07
+  filament: 6.96
+  quantity: 6
+  prototypes: 1
+  content: |-
+    These were super simple. Once the [platform corner legs](../platform-corner-leg) was dialed in, this model just got rid of the "L" shape.
+    The only significant change to the design was to adjust the screw hole and the underside of the mounting.
+
+    Like the [platform corner legs](../platform-corner-leg), these had to be re-run after fixing the height once the edge band was in.
+    Otherwise, they were nice and easy.
+
+Power Wire Cover - bottom:
+  time: 03:39:41
+  filament: 12.48
+  quantity: 1
+  prototypes: 1
+  content: |-
+    Wires - they're ugly! And there are a lot of wires coming out of an ATX power supply.
+    I wanted the lab to stay tidy and I also wanted to ensure that any failed component in the lab could easily be replaced.
+    With these two things in mind, I decided not to cut the wires coming from the power supply to size.
+    Instead, I gathered some ATX extension wires and clipped them into the stock power supply harness.
+    With all those wires hanging out, no amount of twisting/curling them would look tidy. They had to be covered!
+
+    This model is especially simple - it just provides a flat point to mount to the board and some lugs for the actual wire cover to mount to it.
+    To ensure the power supply and the [relayinator](../../subprojects/relayinator) were the correct distance, extensions were added to this mount to index those parts onto.
+    While it's not much of a problem, if I were to do this mount over again, I would place the mounting holes closer to the lugs holding the top of the cover down.
+    Where they sit now allows a fair bit of flex (which can be a good thing) for the mount itself.
+
+Power Wire Cover - top:
+  time: 10:29:24
+  filament: 41.58
+  quantity: 1
+  prototypes: 1
+  content: |-
+    Wires - they're ugly! And there are a lot of wires coming out of an ATX power supply.
+    I wanted the lab to stay tidy and I also wanted to ensure that any failed component in the lab could easily be replaced.
+    With these two things in mind, I decided not to cut the wires coming from the power supply to size.
+    Instead, I gathered some ATX extension wires and clipped them into the stock power supply harness.
+    With all those wires hanging out, no amount of twisting/curling them would look tidy. They had to be covered!
+
+    While I decided to create a cover for the ATX power wires, I still didn't want the lab to look especially boring.
+    This cover was designed to kind of mimic a "funnel" of all the power flowing from the ATX PSU to the [relayinator](../../subprojects/relayinator).
+    I also wanted to have some visibility into how well the power rails of the cheap ATX power supply were keeping up with demand for the lab.
+    With that in mind, I added a landing and holes to hold some 3v - 40v voltmeters - one each for the 5v rail and the 12v rail.
+
+    The design itself was simple enough.
+    Because this wasn't a part that needed to hold a rigid object or fit super precicely, only one prototype was needed so long as the lugs on this part fit well into the openings on the [bottom](../power-wire-cover-bottom).
+    The harder part of the designw as wrestling with Sketchup to intersect the "landing" and the "funnel" in a sane way that didn't mangle the design.
+    Once that was sorted, it was an easy print.
+
+R3S Holster:
+  time: 03:28:42
+  filament: 9.29
+  quantity: 1
+  prototypes: 3
+  content: |-
+    This was yet another design that grew from the [holster with screen](../holster-with-screen/) design.
+    Conceptually the same, the shape of this design fell into place very easily, but a problem quickly came up.
+    The previous holster design allows for the computer to slide in and remain secured by the power cord as a pseudo lynchpin.
+    That couldn't work for this device, unfortunately.
+    The R3S has a serial header which, for whatever reason, isn't exported on the side of the case.
+    This meant that I had to solder the headers onto the board and run the wires through a small hole in the case.
+    With such a tiny case, the only place to exit was out the back - which is where all the other ports are.
+    Since this wire is coming out of the case, it couldn't slide into the case sideways like the [holster with screen](../holster-with-screen/) design.
+    Not to fret - after some noodling, I decided to mount this from the top down.
+    The mount sits on top of the router and thus has external flanges to secure it to the board.
+
+    Although the design was "novel" compared to what ground was already covered with the [holster with screen](../holster-with-screen/) design, only three prototypes were needed to dial it in just right.
+    The biggest issue in the prototypes stemmed from a small error in my math whereby the height of the mount was 2mm shorter than it needed to be (oops!)
+
+Switch Holster:
+  time:  10:20:29
+  filament: 29.44
+  quantity: 1
+  prototypes: 3
+  content: |-
+    This is yet another version of the [holster with screen](../holster-with-screen) design.
+    Having taken measurements of the switch and after producing the [ESP LCD screen](../esplcd-screen), this build was as simple as adjusting for the new dimensions.
+    
+    ... or so I thought. The first prototype failed to launch.
+    I didn't notice that the power port protruded from the back of the switch by 1mm.
+    Since all of these designs are created to be a snug fit to secure the gear as best as possible, this 1mm bump was enough to break the mount as I forced it in for the test fit.
+    After creating a carveout for the power jack on the side that runs the full length of the mount, the next two prototypes were just the usual dial-in builds to get the opening for the power plug and the LEDs positioned just right.

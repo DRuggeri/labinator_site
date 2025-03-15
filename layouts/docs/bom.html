@@ -30,9 +30,12 @@
 
                     {{ $purposes = ( $purposes | uniq ) }}
                     {{ range $purpose := $purposes }}
-                    
-                    $("#bomfilters").append($('<input type="checkbox" id="filter{{ $purpose }}" onclick="renderTable()" checked=true />')) 
-                    $("#bomfilters").append($('<label for="filter{{ $purpose }}"/>{{ $purpose }}</label>')) 
+                        var filterDiv = $("<div/>", {
+                          "style": "display: inline-block; padding: 5px;",
+                        })
+                        filterDiv.append($('<input type="checkbox" id="filter{{ $purpose }}" onclick="renderTable()" checked=true />'))
+                        filterDiv.append($('<label for="filter{{ $purpose }}"/>{{ $purpose }}</label>'))
+                        $("#bomfilters").append(filterDiv)
                     {{ end }}
 
                     var t = document.getElementById("bom");

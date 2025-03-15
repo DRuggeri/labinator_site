@@ -11,11 +11,6 @@
     font-weight: bold;
 }
 
-.modelinfo ul {
-    list-style-type: disc;
-    list-style-position: inside;
-}
-
 .modelinfo a {
     text-decoration: underline;
 }
@@ -28,6 +23,7 @@
 }
   
 #modelviewer_large {
+    padding-top: 10px;
     height: 90vh;
     margin: 10px;
 }
@@ -36,6 +32,13 @@
     border-radius: 10px;
     border: 1px solid gray;
 }
+
+.modelstats {
+    float: right;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
 .hextra-footer {
     display: none;
 }

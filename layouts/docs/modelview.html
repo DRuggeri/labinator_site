@@ -7,14 +7,28 @@
         {{ partial "breadcrumb.html" . }}
         <div class="content">
           {{ if .Title }}<h1>{{ .Title }}</h1>{{ end }}
-
-          {{ .Content }}
-
           {{ $baseName := strings.Replace .Params.model ".stl" "" }}
-          <ul>
-            <li><a href="../../../models/{{ $baseName }}.skp">Sketchup model</a></li>
-            <li><a href="../../../models/{{ $baseName }}.stl">STL model</a></li>
-          </ul>
+
+          <table class="modelstats">
+            <tr><th colspan=2>Info</th></tr>
+            <tr><td>Download:</td><td><a href="../../../models/{{ $baseName }}.skp">Sketchup</a> <a href="../../../models/{{ $baseName }}.stl">STL</a></td></tr>
+            {{ with $info := index .Site.Data.modelstats $baseName }}
+            {{ $cpm := 0.0566865671641791 }}
+            <tr><td>Print time</td><td>
+              {{ with strings.Split .time ":"}}
+                {{ if gt (index . 0 | int) 0 }}{{ index . 0 }}h{{ end }}
+                {{ index . 1 }}m {{ index . 2 }}s
+              {{end}}</td></tr>
+            <tr><td>Filament used</td><td>{{ .filament }}m {{ if gt .quantity 1 }}<span class="modelinfototal">{{ math.Mul .filament .quantity }}</span>{{ end }}</td></tr>
+            <tr><td>Filament cost</td><td>${{ printf "%.2f" (math.Product .filament $cpm) }} {{ if gt .quantity 1 }}<span class="modelinfototal">${{ printf "%.2f" (math.Product .filament $cpm .quantity) }}</span>{{ end }}</td></tr>
+            <tr><td>Quantity</td><td>{{ .quantity }}</td></tr>
+            <tr><td>Prototypes</td><td>{{ .prototypes }}</td></tr>
+            {{ end }}
+          </table>
+
+          {{ with $info := index .Site.Data.modelstats $baseName }}
+          {{ .content | transform.Markdownify }}
+          {{ end }}
 
           <script src="/js/modelviewer/stl_viewer.min.js"></script>
 

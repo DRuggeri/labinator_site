@@ -1,0 +1,43 @@
+"20241221_130057": The very first version - just a cheap, old Linux box and six VMs running on it. The large screens are terminals open to the different boxes while the far left screen of the laptop are VNC sessions open to all six consoles of the running VMs.
+"20250119_130754": This was the initial poke at the relayinator. The bottom row of barrel connectors are wired to a few ATX extension connectors. This would need to be revisited later to just hardwire power all the time.
+"20250119_133238": In progress view of the relayinator with about half of the relay terminals soldered.
+"20250119_201037": The (first version) of the relayinator is finished! This version would control whether power was available on the barrel connectors.
+"20250120_113427": Printing the alrge base of the relayinator cover. For production mode, the infill was cranked up pretty high to keep the parts strong and relatively rigid.
+"20250120_113459": A sketchup view of the relayinator model showing the first version with only one row of barrel connectors.
+"20250122_062257": Test fitting the relayinator to real power provided by the ATX PSU. Notice the Mini USB connector attached to the off-screen PC. This was during testing of the firmware for relayinator to confirm that individual relays were toggleable.
+"20250122_070233": There's always so much junk left after stripping wires and soldering! In the far background of the image you can see the custom circuit board attempted for the relayinator screen and USB holder. For some reason or another, it didn't work, so I cut my losses and moved on.
+"20250124_163744": A freshly finished print of a computer holster with screen. Using tree supports really reduced the amount of wasted material on the print... even though it looked kind of gnarly.
+"20250125_100324": In Sketchup, designing the holster with screen.
+"20250131_200746": Piling them up. Here are all six... with an extra one or two to be sure!
+"20250131_204533": Ripping all those supports off sure does leave a bunch of waste material! Six holster's worth of supports right into the trashcan.
+"20250202_141246": With the holsters printed up and the power supply in hand, it's time to start bench fitting the parts to see how much space we actually have to work with. Notice the cardboard cutouts used as placeholders - whatever works works!
+"20250202_141254": With the holsters printed up and the power supply in hand, it's time to start bench fitting the parts to see how much space we actually have to work with. Notice the cardboard cutouts used as placeholders - whatever works works!
+"20250202_163246": We have the relayinator and the ATX power supply all set, so it's time to start designing the power wire cover.
+"20250207_074107": LOOK AT THAT BRIDGE! This is a prototype of the switch mount, printed without support because I didn't plan to let it finish. This test print was to confirm height/width and power wire placement only.
+"20250208_093051": More parts in hand and more models done, so it's time for another test fit. This time the LCD touch screens and the power wire cover (with awesome voltmeters) are added to the mix. Notice the status messages scrolling on the relayinator at bottom center. Looking good!
+"20250209_154908": Enough test fitting - time to cut a real board and start getting it ready. This is cabinet grade plywood that was hanging out in inventory. This picture was taken just after the board was stained with True Black from Minwax. Looks AWESOME!
+"20250214_052146": Now that the board is in hand and cut to size, it's time to start designing and printing up some feet for the board.
+"20250219_061624": In-flight test fitting and drilling of the printed holsters. Using painter's tape during assembly and drilling reduces the amount of splintering on the surface of the wood. No making fun of using a random tile piece for a straight edge!
+"20250219_064211": More test fitting and drilling out of the way. Notice in this picture and the previous picture the spacer blocks I printed up to keep the holsters a consistent distence apart.
+"20250219_064634": As I worked, the boxes of parts and pieces just kept piling up. This is a nice, long workbench... but is totally covered with stuff for this project and I've just about run out of room. Maybe it's time for spring cleaning?
+"20250301_093534": Tutorial - How to solder on a remote power button relay - first remove the rubber feet and unscrew the hidden screws beneath.
+"20250301_093651": Tutorial - How to solder on a remote power button relay - inside you will find three screws holding the motherboard to the plastic case. The first two are obvious (you can see them immediately in the above image) while the third is hidden beneath an antistatic plastic piece under the SSD.
+"20250301_093825": Tutorial - How to solder on a remote power button relay - the bottom view of the motherboard. Looking at this picture, the two pins to bridge to simulate a button press are in the bottom right corner.
+"20250301_094200": Tutorial - How to solder on a remote power button relay - with the weight of a wire stripper or something and a small bend in the wire, this picture shows how to position the wire that will be connected to a relay to simulate a button press.
+"20250301_094346": Tutorial - How to solder on a remote power button relay - add a little heat and a small dab of solder and now the pins and wire are one. It's not the most beautiful of work, but it gets the job done! Be careful not to overdo the solder application!
+"20250301_105508": Tutorial - How to solder on a remote power button relay - six worker nodes, all done. Routing the wire out of the case turned out to be easy... just use the hole cut out for the VGA port!
+"20250304_202503": Finally - all of the holsters are printed and fitted. This is the last picture taken down on the workbench before final assembly started. Notice that the new two-row relayinator is in place.
+"20250308_195833": Final fitment of all holsters with cable combs - glamor shot!
+"20250308_195838": Final fitment of all holsters with cable combs - glamor shot!
+"20250308_195844": Final fitment of all holsters with cable combs - glamor shot!
+"20250308_195852": Final fitment of all holsters with cable combs - glamor shot!
+"20250308_195916": Final fitment of all holsters with cable combs - glamor shot!
+"20250308_195921": Final fitment of all holsters with cable combs - glamor shot!
+"20250308_195929": Final fitment of all holsters with cable combs - glamor shot!
+"20250308_195930": Final fitment of all holsters with cable combs - glamor shot!
+"20250308_195935": Final fitment of all holsters with cable combs - glamor shot!
+"20250308_195947": Final fitment of all holsters with cable combs - glamor shot!
+"20250308_195953": Final fitment of all holsters with cable combs - glamor shot!
+"20250312_202834": Final assmebly has begun! Start by running all of the relay-controlled power button wires since they are the smallest and sit the lowest in the cable comb.
+"20250312_202837": Another shot of the final assembly beginning. Notice how much space is avaialble in the upper left corner of the board. It's deceptive! After including the USB to TTL adapter and USB-C to 5.5x2.1mm barrel adapter, there isn't all that much space left over!
+"20250312_203120": In final assembly mode, the amount of parts, tools, and hardware sitting around to get the job done right seems to really increase. Here are various tools needed to get the job done The Right Way. Some key tools in the picture are the soldering iron, soldering iron hot tips for brass gromets, scissors for cutting velcro bands, velcro bands themselves, flush-cut snips, automatic wire strippers, spacing blocks for fitment, needle nose pliers for reaching into tight spaces, drill bits, and of course some soldering iron cleaning copper for all the junk that gets on the tip.

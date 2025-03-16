@@ -14,44 +14,22 @@
 <!-- Text in the lightbox, either index on a piture or fetched from long_list [Name1, Name2, Exif1, Exif2] -->
 {{ $showAlt := .Get "showAlt" | default false }}
 
-{{ $usefile := .Get "useFile" | default false }}
-{{ $wordList := slice }}
-
-{{ if $usefile }}
-  {{ $filename := .Get "filename" }}
-  {{ $content := os.ReadFile $filename }}
-
-  {{ $longList := $content | replaceRE "\\[|\\]|'|" "" }}
-  {{ $wordList = split $longList "," }}
-  {{- printf "%s" $wordList -}}
-
-{{ else }}
-  {{ $longList := .Get "long_list" | default "Image 1, Image 2, Image 3, Image 4, Image 5"}}
-  {{ $wordList = split $longList "," }}
+{{ $captions := dict }}
+{{ with .Page.Resources.Get "imagecaptions.yaml" }}
+  {{ with . | unmarshal }}
+    {{ $captions = . }}
+  {{ end }}
 {{ end }}
-
-
 
 <!-- Create gallery -->
 <ul class="gallery_new" data-gallery-id="{{ $uniqueID }}" data-show-alt="{{ $showAlt }}">
-  {{if $randomize }}
-    {{ range $index, $image := $imageFiles | shuffle}}
-    <li class="gallery-item">
-      <img src="{{ $image.RelPermalink }}" alt="{{ if lt $index (len $wordList) }}
-      {{ index $wordList $index }}{{ else }}Image {{ add $index 1 }}{{ end }}"
-      class='clickable-image' data-gallery-id="{{ $uniqueID }}"
-      loading="{{ if gt $index 5 }}lazy{{ else }}eager{{ end }}" data-show-alt="{{ $showAlt }}" />
-    </li>
-  {{ end }}
-
-    {{else}}
-      {{ range $index, $image := $imageFiles }}
+    {{ range $index, $image := $imageFiles }}
       <li class="gallery-item">
-        <img src="{{ $image.RelPermalink }}" alt="{{ if lt $index (len $wordList) }}{{ index $wordList $index }}{{ else }}Image {{ add $index 1 }}{{ end }}"
+        {{ $baseName := path.BaseName $image.Name }}
+        <img src="{{ $image.RelPermalink }}" alt="{{ with index $captions $baseName}}{{ . }}{{else}}{{ $baseName }}{{ end }}"
         class='clickable-image' data-gallery-id="{{ $uniqueID }}" loading="{{ if gt $index 5 }}lazy{{ else }}eager{{ end }}" />
       </li>
     {{ end }}
-  {{end}}
 </ul>
 
 <style>
@@ -101,7 +79,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.7);
       color: #fff;
       padding: 5px;
       font-size: 12px;

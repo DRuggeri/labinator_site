@@ -190,7 +190,7 @@ params:
     purpose: display
 
 ---
-One of the defining tenants for labinator is that it had to [use cheap, commodity hardware](../about/#why-cheap-hardware). The bulk of the cost, therefore, comes from consumer grade hardware you can find from places like AliExpress or Amazon to keep the prices as low as possible.
+One of the defining tenants for Labinator is that it had to [use cheap, commodity hardware](../about/#why-cheap-hardware). The bulk of the cost, therefore, comes from consumer grade hardware you can find from places like AliExpress or Amazon to keep the prices as low as possible.
 
 The bulk of the lab can be built for well under $1,000 USD. However, to be a little flashy and clever, some extras were added such as the [relayinator](../subprojects/relayinator) (which "presses" the power buttons of the lab gear to turn the machines on and off). The lab is also intended to be mobile and demonstrative of the technologies in use, so each machine has one or more monitors attached to it to allow the observer to see what is going on with each machine at any given time. To stay mobile, a ton of [3D printed models](/docs/models/) are used to arrange the devices on a mobile board and to mount screens and wires. You can use the filters below to hide such extras.
 

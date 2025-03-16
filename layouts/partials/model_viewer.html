@@ -6,26 +6,26 @@
 
 <script type="text/javascript">
   function load_prog_{{ $shortName }}(load_status, load_session) {
-  var loaded_{{ $shortName }}=0;
-  var total_{{ $shortName }}=0;
+    var loaded_{{ $shortName }}=0;
+    var total_{{ $shortName }}=0;
 
-  //go over all models that are/were loaded
-  Object.keys(load_status).forEach(function(model_id) {
-      //need to make sure we're on the last loading session (not counting previous loaded models)
-      if (load_status[model_id].load_session==load_session) {
-      loaded_{{ $shortName }}+=load_status[model_id].loaded;
-      total_{{ $shortName }}+=load_status[model_id].total;
-      }
-  });
+    //go over all models that are/were loaded
+    Object.keys(load_status).forEach(function(model_id) {
+        //need to make sure we're on the last loading session (not counting previous loaded models)
+        if (load_status[model_id].load_session==load_session) {
+          loaded_{{ $shortName }}+=load_status[model_id].loaded;
+          total_{{ $shortName }}+=load_status[model_id].total;
+          }
+      });
 
-  //set total progress bar
-  document.getElementById("pbtotal_{{ $shortName }}").value=loaded_{{ $shortName }}/total_{{ $shortName }};
+    //set total progress bar
+    document.getElementById("pbtotal_{{ $shortName }}").value=loaded_{{ $shortName }}/total_{{ $shortName }};
   }
 
   function load_done_{{ $shortName }}() {
-  document.getElementById("pbtotal_{{ $shortName }}").style.display = 'none';
-  document.getElementById("modelviewer_{{ $shortName }}").style.display = 'unset';
-  stl_viewer_{{ $shortName }}.set_auto_rotate(true);
+    document.getElementById("pbtotal_{{ $shortName }}").style.display = 'none';
+    document.getElementById("modelviewer_{{ $shortName }}").style.display = 'unset';
+    stl_viewer_{{ $shortName }}.set_auto_rotate(true);
   }
 
   var setup_{{ $shortName }} = {
@@ -34,15 +34,15 @@
     cameray: 67.5,
     auto_rotate: true,
     models: [
-        { 
-          id: 0,
-          filename: {{ $modelPath }},
-          color: '#d6d6d6',
-          display: 'flat',
-          rotationx: -1.5708,
-        }
+      { 
+        id: 0,
+        filename: {{ $modelPath }},
+        color: '#d6d6d6',
+        display: 'flat',
+        rotationx: -1.5708,
+      }
     ]
-  };
+  }
 
   var stl_viewer_{{ $shortName }}=new StlViewer(document.getElementById("modelviewer_{{ $shortName }}"), setup_{{ $shortName }});
 </script>

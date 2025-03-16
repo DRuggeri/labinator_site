@@ -1,22 +1,33 @@
+.modelmap {
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+.modelmap svg {
+    width: 95%;
+    height: 500px;
+}
+
+.modelmap svg g path:hover {
+    fill: #ffffff !important;
+    fill-opacity: .30 !important;
+    stroke: hsl(var(--primary-hue) var(--primary-saturation) calc(calc(var(--primary-lightness) / 50) * 45) / var(--tw-text-opacity)) !important;
+    stroke-width: 4 !important;
+}
+
 .modelinfo {
     border: 1px solid gray;
     border-radius: 5px;
     margin: .5em;
     padding: .5em;
 }
-
-.modelinfo h3 {
-    text-align: center;
+.modelinfo a {
+    margin: 10px;
+}
+.modeltitle {
+    text-align: left;
     font-size: 1.17em;
     font-weight: bold;
-}
-
-.modelinfo a {
-    text-decoration: underline;
-}
-.modelTitle {
-    margin-top: 0px;
-    text-align: center;
+    margin: 10px;
 }
 .modelprogress {
     width: 100%;

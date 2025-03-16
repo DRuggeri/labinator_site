@@ -29,18 +29,19 @@
   }
 
   var setup_{{ $shortName }} = {
-  loading_progress_callback: load_prog_{{ $shortName }},
-  all_loaded_callback: load_done_{{ $shortName }},
-  models: [
-      { 
-      id: 0,
-      filename: {{ $modelPath }},
-      color: '#d6d6d6',
-      display: 'flat',
-      rotationx: -1.5708,
-      auto_rotate: true,
-      }
-  ]
+    loading_progress_callback: load_prog_{{ $shortName }},
+    all_loaded_callback: load_done_{{ $shortName }},
+    cameray: 67.5,
+    models: [
+        { 
+        id: 0,
+        filename: {{ $modelPath }},
+        color: '#d6d6d6',
+        display: 'flat',
+        rotationx: -1.5708,
+        auto_rotate: true,
+        }
+    ]
   };
 
   var stl_viewer_{{ $shortName }}=new StlViewer(document.getElementById("modelviewer_{{ $shortName }}"), setup_{{ $shortName }});

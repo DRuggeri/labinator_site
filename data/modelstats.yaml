@@ -192,7 +192,7 @@ Power Wire Cover - bottom:
     With all those wires hanging out, no amount of twisting/curling them would look tidy. They had to be covered!
 
     This model is especially simple - it just provides a flat point to mount to the board and some lugs for the actual wire cover to mount to it.
-    To ensure the power supply and the [relayinator](../../subprojects/relayinator) were the correct distance, extensions were added to this mount to index those parts onto.
+    To ensure the power supply and the [Relayinator](../../subprojects/relayinator) were the correct distance, extensions were added to this mount to index those parts onto.
     While it's not much of a problem, if I were to do this mount over again, I would place the mounting holes closer to the lugs holding the top of the cover down.
     Where they sit now allows a fair bit of flex (which can be a good thing) for the mount itself.
 
@@ -209,7 +209,7 @@ Power Wire Cover - top:
     With all those wires hanging out, no amount of twisting/curling them would look tidy. They had to be covered!
 
     While I decided to create a cover for the ATX power wires, I still didn't want the lab to look especially boring.
-    This cover was designed to kind of mimic a "funnel" of all the power flowing from the ATX PSU to the [relayinator](../../subprojects/relayinator).
+    This cover was designed to kind of mimic a "funnel" of all the power flowing from the ATX PSU to the [Relayinator](../../subprojects/relayinator).
     I also wanted to have some visibility into how well the power rails of the cheap ATX power supply were keeping up with demand for the lab.
     With that in mind, I added a landing and holes to hold some 3v - 40v voltmeters - one each for the 5v rail and the 12v rail.
 
@@ -251,3 +251,43 @@ Switch Holster:
     I didn't notice that the power port protruded from the back of the switch by 1mm.
     Since all of these designs are created to be a snug fit to secure the gear as best as possible, this 1mm bump was enough to break the mount as I forced it in for the test fit.
     After creating a carveout for the power jack on the side that runs the full length of the mount, the next two prototypes were just the usual dial-in builds to get the opening for the power plug and the LEDs positioned just right.
+
+Relayinator Bottom:
+  time: 07:00:18
+  filament: 22.80
+  quantity: 1
+  prototypes: 3
+  content: |-
+    This was the very first print of the whole lab because I figured the power management center of the lab will be the most difficult to get right.
+    Thinking through the design, I wanted to be sure that the panel holding the barrel connectors had a bit of reinforcement to it so insertion and removal of the connectors doesn't strain/break the panel.
+    This is critical because FDM prints are weakest along the layer lines which means bending the upright panel forward or back is straining the weakest point.
+    To address this, the panel sits upright and slots into the [top cover](../relayinator-top).
+
+    Sure enough, it took a few attempts to get there.
+    The first prototypes were simple fitment prototypes to ensure that the parts would slot together and the mounting screws for the relay board lined up with the holes in the model for it.
+    Those came together pretty easily.
+    As noted in the [Relayinator](../../subprojects/relayinator) doc, this print had to be reworked once I realized that simply controlling the power to the computers wasn't going to be enough.
+
+Relayinator Top:
+  time: 06:43:23
+  filament: 25.22
+  quantity: 1
+  prototypes: 3
+  content: |-
+    This part mates with the [bottom](../relayinator-bottom) to cover the 8 relay ESP32 board.
+    One of the things I wanted to do for this part was to make it so the top could be removed while the board and associated electronics stay mounted.
+    For that to work, the parts that interface with the electronics and the wires had to be on the bottom model.
+    At the least, this meant the panel to which the plugs attach couldn't be part of the top model.
+    The trick was to have the front and back panels slot in to receiving notches the height of the cover model and to make the cover model only cover up the top and two sides.
+    Knowing I wanted to mount a small OLED screen to display statuses, a cutout was placed so as to not allow those wires or electronics to interfere with the relay board itself.
+    The relays are relatively tall so I knew the OLED could not be mounted above them without raising the overall height of the model (which wastes time and filament!)
+
+    This part came together pretty easily with only three prototypes.
+    The adjustments between the prototypes were mostly to fine tune the dimensions, which makes sense since both the top and bottom are designed to mate together (as in: I had all of the required dimensions up front).
+    On the first iteration, I didnt' quite think through how to mount the OLED to the cover which was an obvious gap during test fitting.
+    A hole with nothing to notch into or index from made it difficult to position the OLED at all.
+    To remedy this, I added mounting studs that would locate the OLED exactly where it needed to be, but this design ultimately failed because of how weak a small vertical piece would be.
+    
+    When I did the last fitment of the first version of [Relayinator](../../subprojects/relayinator), I just melted some extra filament onto the board and the cover which did fine to make the mounting strong enough.
+    Unfortunately, I forgot all about this when I had to rejigger the bottom to include static power ports and relay-controlled power ports, which required a reprint of both the top and bottom.
+    In retrospect, adding standoffs for some small M2 screws to bite into from the underside like the [LCD HDMI screens](../lcd-hdmi-screen) would have worked quite nicely.

@@ -27,7 +27,7 @@
           </table>
 
           {{ with $info := index .Site.Data.modelstats $baseName }}
-          {{ .content | transform.Markdownify }}
+            {{ .content | transform.Markdownify }}
           {{ end }}
 
           <script src="/js/modelviewer/stl_viewer.min.js"></script>
@@ -40,7 +40,13 @@
           Wireframe: <input type="checkbox" onclick="stl_viewer_large.set_display(0, this.checked ? 'wireframe' : 'flat');" />
           Edges: <input type="checkbox" onclick="stl_viewer_large.set_edges(0, this.checked ? true : false);" />
           Autorotate: <input type="checkbox" checked="true" onclick="stl_viewer_large.set_auto_rotate(this.checked ? true : false);" />
-          <span id="caminfo"></span>
+          <span id="caminfo" style="float: right"></span>
+          <script>
+            setInterval(function() {
+              var pos = stl_viewer_large.get_camera_state().position;
+              document.getElementById("caminfo").innerHTML = `x: ${(Math.round(pos.x * 100) / 100).toFixed(2)}, y: ${(Math.round(pos.y * 100) / 100).toFixed(2)}, z: ${(Math.round(pos.z * 100) / 100).toFixed(2)}`;
+            }, 100)
+          </script>
 
         </div>
         {{ partial "components/last-updated.html" . }}

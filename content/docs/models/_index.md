@@ -7,7 +7,7 @@ One of the principles of Labinator is that it had to be portable.
 While there are a lot of cheap/easy ways to meet this requirement, it certainly doesn't cause any harm to add a little [flair/polish](../about/#why-should-it-be-portable) to everything.
 Besides... home labbing is an awesome hobby - so why not incorporate *more hobbies* into the process?
 
-Enter: 3D modelling and 3D printing
+Enter: 3D modeling and 3D printing
 
 During the pandemic I finally broke down and bought a 3D printer.
 I've always been interested in them and like many others, I had a bit more time on my hands than I knew what to do with!
@@ -23,4 +23,7 @@ Since I had lots of experience with Sketchup, and because these are simple geome
 * [Ultimaker Cura](https://ultimaker.com/software/ultimaker-cura/) slicer
 * [Ender 3 Pro](https://www.creality.com/products/ender-3-pro-3d-printer) 3D printer
 * [Layerneer Bed Weld](https://www.amazon.com/dp/B079984GV5) to keep those prints down!
-* A complex [calculator](https://apps.microsoft.com/detail/9wzdncrfhvn5)
+* A highly advanced and complex [calculator application](https://apps.microsoft.com/detail/9wzdncrfhvn5)
+
+#### The Models
+Mouse over a model to jump to it

@@ -32,14 +32,14 @@
     loading_progress_callback: load_prog_{{ $shortName }},
     all_loaded_callback: load_done_{{ $shortName }},
     cameray: 67.5,
+    auto_rotate: true,
     models: [
         { 
-        id: 0,
-        filename: {{ $modelPath }},
-        color: '#d6d6d6',
-        display: 'flat',
-        rotationx: -1.5708,
-        auto_rotate: true,
+          id: 0,
+          filename: {{ $modelPath }},
+          color: '#d6d6d6',
+          display: 'flat',
+          rotationx: -1.5708,
         }
     ]
   };

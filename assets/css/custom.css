@@ -11,7 +11,7 @@
     fill: #ffffff !important;
     fill-opacity: .30 !important;
     stroke: hsl(var(--primary-hue) var(--primary-saturation) calc(calc(var(--primary-lightness) / 50) * 45) / var(--tw-text-opacity)) !important;
-    stroke-width: 4 !important;
+    stroke-width: 10 !important;
 }
 
 .modelinfo {

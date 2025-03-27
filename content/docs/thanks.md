@@ -9,5 +9,6 @@ A few content creators and "random Internet folks" have taken the time to share 
 * Thanks to [Dawid Zyla](https://www.dzyla.com/about/about/) for sharing his [quick and easy Hugo shortcode for image galleries](https://www.dzyla.com/blog/post38/)
 
 #### Projects
+* [Iconify](https://iconify.design/) - a project by [Vjacheslav Trushkin](https://iconify.design/about/) to collect Open Source icons
 * [Hugo](https://gohugo.io/) - the best static content site generator which has rendered these pages you're viewing
 * [Hextra](https://imfing.github.io/hextra/) Hugo theme by [Xin](https://imfing.com/) to make a decent looking site

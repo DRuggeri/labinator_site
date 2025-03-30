@@ -125,7 +125,7 @@ LCD - HDMI Screen:
 LCD - Touch Mount:
   time: 02:00:58
   filament: 5.23
-  quantity: 4
+  quantity: 3
   prototypes: 2
   content: |-
     After having built the [LCD touch screen](../lcd-touch-screen) bezel, and after having learned lots of lessons from the [holster with screen](../holster-with-screen) model, this one couldn't have been easier.
@@ -135,6 +135,26 @@ LCD - Touch Mount:
 
     With such a simple design, this one almost got away with just a single prototype before production.
     Everything fit fine on the first go - but I didn't like the positioning of the mounting holes to the board, so I adjusted them a bit for the next prototype and also added a few angles to the overall design.
+    
+    Unfortunately, because there is so little material connecting the mount to the monitor, I suffered a breakage of one of the parts during assembly.
+    I might need to revisit this design!
+
+LCD - Touch Mount - Minimal:
+  time: 02:01:01
+  filament: 4.59
+  quantity: 1
+  prototypes: 0
+  content: |-
+    As final assembly kicked off, I realized something horrible.
+    Although the [LCD - Touch Mount](../lcd-touch-mount) needed to have a bit of dremel work post-print done to it in order to fit the 180 degree HDMI adapter, it turns out the USB3 to HDMI adapter I bought isn't Linux compatible *at all*.
+    I had the choice of running HDMI off of USB-A via CPU-driven DisplayLink or just using the VGA port built into these cheap-o boxes.
+    I opted to go for the VGA port usage, but due to how the boss machine mounts up, this meant VGA adapter would completely intercect with the legs of the existing mount.
+    
+    Totally winging it, I did some eyeballing measurement to see how much of the mount I would need to take off of the model.
+    It looked like I would just clear the vertical upright if it did a straight drop from the connection point with the [LCD touch screen](../lcd-touch-screen) bezel.
+    Unfortunately, this also removes quite a bit of material from the mount making an already weak mount even weaker.
+
+    No prototypes were needed because I simply adjusted the existing [LCD - Touch Mount](../lcd-touch-mount), but I may need to revisit the design for added strength.
 
 LCD - Touch Screen:
   time: 03:47:47

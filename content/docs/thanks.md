@@ -9,6 +9,7 @@ A few content creators and "random Internet folks" have taken the time to share 
 * Thanks to [Dawid Zyla](https://www.dzyla.com/about/about/) for sharing his [quick and easy Hugo shortcode for image galleries](https://www.dzyla.com/blog/post38/)
 * Thanks to [Nelson Morais](https://www.linkedin.com/in/njmorais/) for his work [reverse engineering a marionette client for Gecko](https://github.com/njasm/marionette_client)
 * Thanks to [Martino](https://martinomagnifico.github.io) for the handy reveal.js plugins he made like [simplemenu](https://github.com/martinomagnifico/reveal.js-simplemenu)
+* Thanks to [Felix Stein](https://flxn.de/) for the awesome [QR Code STL file generator](https://printer.tools/qrcode2stl/) (and other cool stuff on [printer.tools](https://printer.tools/))
 
 #### Projects
 * [Iconify](https://iconify.design/) - a project by [Vjacheslav Trushkin](https://iconify.design/about/) to collect Open Source icons

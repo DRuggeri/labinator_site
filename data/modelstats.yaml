@@ -311,3 +311,23 @@ Relayinator Top:
     When I did the last fitment of the first version of [Relayinator](../../subprojects/relayinator), I just melted some extra filament onto the board and the cover which did fine to make the mounting strong enough.
     Unfortunately, I forgot all about this when I had to rejigger the bottom to include static power ports and relay-controlled power ports, which required a reprint of both the top and bottom.
     In retrospect, adding standoffs for some small M2 screws to bite into from the underside like the [LCD HDMI screens](../lcd-hdmi-screen) would have worked quite nicely.
+QRCode Holder:
+  time: 00:20:37
+  filament: 1.12
+  quantity: 1
+  prototypes: 0
+  content: |-
+    There's a really cool and handy [QR code to STL model generator](https://printer.tools/qrcode2stl/) out there from [printer.tools](https://printer.tools/) that lets you generate a QR codes as STL files.
+    The labinator has one such QR code printed up, but since I do not have a dual extusion head printer, I whipped up a quick holder for the QR code so the outer border could be a solid color rather than 50/50 black and white.
+    That's really all there is to this one - nice and simple.
+
+    To construct this model, I just took the generated QR code STL file and imported it into Sketchup.
+    Simply grabbing the outline of the shape and using the offset tool to add .3mm gave the inside proportions.
+    Using the offset tool again to add the border and extruding to the desired height was all that was left to do.
+
+    With such a simple model, the original print was the final print - no need for many prototypes.
+    I did end up printing a second holder and QR code, though.
+    To protect the raised edges of the code and give a really nice finished surface, I covered the surface with UV curing resin.
+    After curing the resin under the UV lamp, the result was suboptimal.
+    The curing resin shrank a bit causing the resulting model to curve a bit - and the surface of the resin had slightly visible "flow" lines in it.
+    I'm sure with more tweaking and applying the resin in smaller layers, the result could be as-desired... but a raw 3D print was fine enough for labinator!

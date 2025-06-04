@@ -331,3 +331,21 @@ QRCode Holder:
     After curing the resin under the UV lamp, the result was suboptimal.
     The curing resin shrank a bit causing the resulting model to curve a bit - and the surface of the resin had slightly visible "flow" lines in it.
     I'm sure with more tweaking and applying the resin in smaller layers, the result could be as-desired... but a raw 3D print was fine enough for labinator!
+
+Platform Stand:
+  time: 21:51:32
+  filament: 88.00
+  quantity: 2
+  prototypes: 0
+  content: |-
+    Labinator is cool and all, but what good is that if you can't show it off?
+    These are very simple legs that attach to the edge of the mounting board, tilt it back 10 degress, and hold the lab upright on its "side".
+
+    The design was not especially difficult to whip up since I already had perfect dimensions from the [platform corner legs](../platform-corner-leg).
+    The main consideration was figuring out what a good angle would be that keeps Labinator upright enough to be seen, but doesn't risk making it fall forward.
+    I decided that it'd be stable enough if the length of the support extends twice the distance that the top of the board would sit at.
+    Using the trigonometry I hadn't used since college, it was easy enough to figure up.
+
+    Given the size of these supports, amount of infill needed to be robust enough to support the weight of the lab, and overall time to print it, I didn't run any prototypes.
+    The design was spot on, so that was great... but the print of the second leg failed about 30 minutes before finishing.
+    Oh well! I'm not going to wait another day just for the unseen edge of the bracket to look good!

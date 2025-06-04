@@ -51,3 +51,29 @@
 "20250326_203007": This is the main raceway of all the wires including power, network, relays, and even a USB cable to feed the screen atop the switch. So. Many. Wires.
 "20250326_203010": Speaking of wires... look at all this junk going to each device! 7 total connection points coming, going, or between the computer and the screen.
 "20250326_203018": Cable management is a thing. A not very fun thing. Lots of wires and lots of trying to route them/tie them off cleanly
+"20250603_184744": It's all put together now! Glamor shot!
+"20250603_185110": It's all put together now! Glamor shot!
+"20250603_185216": Closer look at the PSU and top/bottom touch screens. Notice the voltmeters on the 12v and 5v rails to be sure that we don't run low on power for the nodes (which would be almost impossible for a beefy power supply like this one!)
+"20250603_185231": A running lab with six bare metal Talos nodes after cluster formation.
+"20250603_185256": Another image of the running lab with six baremetal nodes.
+"20250603_185522": Cheeky boot messages coming from the Statusinator. It spins on some random messages like this until Labwatch comes up.
+"20250603_185526": These are the same cheeky boot messages that Statusinator delivers, but instead on the Relayinator screen during boot up. After boot up, Labwatch will actively monitor the ports for up/down.
+"20250603_185531": Closer look at the PSU. Notice the voltmeters on the 12v and 5v rails to be sure that we don't run low on power for the nodes (which would be almost impossible for a beefy power supply like this one!)
+"20250603_185549": Overview shot
+"20250603_185600": Side shot of Boss (on the right) and Wally (on the left behind the USB hub) hidden under the two touch screens. The wire management under these screens is crazy!
+"20250603_185606": Side shot of Wally (on the right under the screen) and Node1. Notice the available WAN port for Wally - if you want to get into labinator remotely, plug it into a DHCP-ready network and you're good to go!
+"20250603_185615": More top-side shots of the nodes and cable management needed to go to each. Each node has three wires coming to it: network, power for the node, power for the monitor, and a relay-activated switch to turn the node on or off.
+"20250603_185621": A better view of the port-side of the lab nodes. The HDMI connection snakes under the monitor because the wire is a little long. The power is converted from 5.5mm barrel connector to microUSB via an adapter as well.
+"20250603_185636": A look down the main cable raceway including ethernet, device power, monitor power, and switched power buttons.
+"20250603_185904": A higher view of the main cable raceway and running labs as hypervisors are booting.
+"20250603_185936": A quick look at Statusinator (right) and Relayinator (left). Notice how Statusinator is sharing tidbits about the various stuff going on including log levels.
+"20250603_185943": A direct view of the main cable raceway showing the monitor power coming from a singular 5v drop, the relay-switched power buttons, the power drop coming from the bottom row of Relayinator, and cat6 cables sitting atop all of it on the way to the switch.
+"20250603_185950": The cable raceway sure gets much cleaner after all the wires veer off to go to the lab nodes. This view shows that only a handful of wires need to make it to Boss and Wally (plus a USB cable from Boss to Relayinator and Statusinator to control them).
+"20250603_190020": Another overall view showing the bootup of hypervisors.
+"20250603_190033": The original design called for switching all of the monitors off at once, so I put all of the lab machine monitors on a single power drop meant for port 8 of Relayinator. I ran out of time before adjusting the wiring to make the monitor power controlled by that port, but the guts are all there.
+"20250603_190112": A closer view of Statusinator showing stats for power, network requests, nodes running, etc. The running lab and the current step are displayed along the LAB line.
+"20250603_190133": While Statusinator provides high level stats, the same information is presented via a status page (available at any time under the Observe menu item).
+"20250603_190840": A glamor shot of a completed initialization of the two VM lab with six running hypervisors and twelve VMs atop. Notice the done state on the right side of the LAB line.
+"20250603_191415": The backside of Labinator showing the hidden screw points and fasteners that attach each piece of gear to the board.
+"20250603_191447": With the added supports, Labinator can also stand up and show off its goodness.
+"20250603_191646": Labinator has finally graduated from the workshop bench to my proper desktop. It was a long, frustrating, but educational journey to get here! Now to take the show on the road!

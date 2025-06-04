@@ -62,7 +62,7 @@
 "20250603_185549": Overview shot
 "20250603_185600": Side shot of Boss (on the right) and Wally (on the left behind the USB hub) hidden under the two touch screens. The wire management under these screens is crazy!
 "20250603_185606": Side shot of Wally (on the right under the screen) and Node1. Notice the available WAN port for Wally - if you want to get into labinator remotely, plug it into a DHCP-ready network and you're good to go!
-"20250603_185615": More top-side shots of the nodes and cable management needed to go to each. Each node has three wires coming to it: network, power for the node, power for the monitor, and a relay-activated switch to turn the node on or off.
+"20250603_185615": "More top-side shots of the nodes and cable management needed to go to each. Each node has three wires coming to it: network, power for the node, power for the monitor, and a relay-activated switch to turn the node on or off."
 "20250603_185621": A better view of the port-side of the lab nodes. The HDMI connection snakes under the monitor because the wire is a little long. The power is converted from 5.5mm barrel connector to microUSB via an adapter as well.
 "20250603_185636": A look down the main cable raceway including ethernet, device power, monitor power, and switched power buttons.
 "20250603_185904": A higher view of the main cable raceway and running labs as hypervisors are booting.

@@ -4,8 +4,8 @@ layout: hextra-home
 ---
 
 {{< hextra/hero-container
-  image="/images/landing.jpg"
-  imageTitle="Regolith Desktop Environment"
+  image="/images/landing.png"
+  imageTitle="Labinator"
   imageWidth="999999"
 >}}
 

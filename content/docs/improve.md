@@ -76,6 +76,8 @@ Improvement: Enable and test [this code](https://github.com/DRuggeri/labinator_l
 Additional notes:
 * You can ALSO pass talos configuration in via the hypervisor. In testing on vSphere, this works fantastically... but it was a disaster when I tried to do this with KVM and CoreOS (why isn't [this](https://github.com/coreos/ignition/blob/2ef5a3a86fa099a19ccae91dba08a60492c90673/internal/providers/qemu/qemu_fwcfg.go#L100) documented somewhere?!?!), so I assumed Talos would suffer the same quadratic time fate reading "firmware". It would be good to test this for VMs since I flipped from `--virt-type qemu` to `--virt-type kvm` in Labinator.
 
+## Add Load
+
 
 ## Power Buttons
 
@@ -86,3 +88,9 @@ Additional notes:
 ## Labinator Is Too Big
 
 ## Weak Printed Mounts
+
+## Status Page Node Alignment
+
+## Policy-based Airgap
+
+## Wireguard VPN

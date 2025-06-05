@@ -41,3 +41,7 @@ The network is as simple as it gets and Boss is just another cheap "junk" node t
 
 The root cause is *currently* unknown - triage attempts from Boss to the rest of the network (which isn't much) show no issues.
 Boss can serve files to itself and the SSH/VNC (which ARE resilient to networking delays, so this may not mean much) remain available even when this occurs.
+
+## A lab node monitor doesn't come on
+
+## The bottom screen doesn't come on

@@ -8,7 +8,7 @@ You'll find all sorts of stuff such as [why](about) this thing even exists, [wha
 The concept of Labinator came into mind during some time off during 2024 Thanksgiving break.
 I primarily wanted a cheap way to experiment with server orchestration from virtualization up the stack through to containers.
 At that time, the idea of a mobile lab wasn't even on the radar.
-But as I experimented with some of the [https://talos.dev](newer technologies) making their presence known on the scene (and even some of the [older ones](https://en.wikipedia.org/wiki/Preboot_Execution_Environment) used in neat ways), I was inspired to take the lab on the road to *show* people how neat things can get.
+But as I experimented with some of the [https://talos.dev/](newer technologies) making their presence known on the scene (and even some of the [older ones](https://en.wikipedia.org/wiki/Preboot_Execution_Environment) used in neat ways), I was inspired to take the lab on the road to *show* people how neat things can get.
 
 #### Some cool Labinator tidbits
 * VLAN-supporting isolated LAN with airgapped operation

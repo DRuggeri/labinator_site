@@ -18,6 +18,9 @@ enableGitInfo: true
 languageCode: en-us
 DefaultContentLanguage: en
 
+security:
+  enableInlineShortcodes: true
+
 #sectionPagesMenu: main
 pagination:
   pagerSize: 10

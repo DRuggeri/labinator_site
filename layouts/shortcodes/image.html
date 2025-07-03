@@ -1,0 +1,15 @@
+{{- $class := .Get "class" | default "" -}}
+{{- $style := .Get "style" | default "" -}}
+{{- $spec := "png" -}}
+
+{{- with .Get "width" -}}
+  {{- $spec = (printf "resize %dx" .) -}}
+{{- else with .Get "height" -}}
+  {{- $spec = (printf "resize x%d" .) -}}
+{{- end -}}
+
+{{- with .Page.Resources.Get (.Get "path") }}
+  {{- with .Process $spec -}}
+    <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" alt="{{ $.Get "alt" }}" {{- with $class }}class="{{.}}"{{end}} {{- with $style }}style="{{.}}"{{end}}>
+  {{- end }}
+{{- end -}}

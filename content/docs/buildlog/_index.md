@@ -1,5 +1,6 @@
 ---
-title: The Build
+title: Build Images
+Weight: 5
 ---
 Build log in pictures and prose. Click each picture to see the caption about what's going on. The far right and left of each image in the popup will move to the next or previous image, respectively.
 

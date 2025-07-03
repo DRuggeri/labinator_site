@@ -1,6 +1,7 @@
 ---
 Title: Bill of Materials
 layout: bom
+Weight: 6
 params:
   parts:
   - item: FriendlyElec NanoPi R3S

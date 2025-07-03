@@ -61,3 +61,7 @@
 .bomquantity {
     font-size: smaller;
 }
+
+.layoutpic {
+    float: right;
+}

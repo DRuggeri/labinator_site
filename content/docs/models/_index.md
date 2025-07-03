@@ -1,5 +1,6 @@
 ---
-title: Models
+title: 3D Models
+Weight: 4
 layout: models
 ---
 

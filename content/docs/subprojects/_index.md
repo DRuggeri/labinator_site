@@ -1,5 +1,6 @@
 ---
 title: Subprojects
+Weight: 3
 ---
 Labinator is a pretty cool project overall, but it is composed of a several sidequests, too!
 

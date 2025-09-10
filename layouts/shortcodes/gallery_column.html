@@ -10,6 +10,8 @@
 {{ $columns := .Get "columns" | default "4" }}
 <!-- Gallery gap px -->
 {{ $gap := .Get "gap" | default "10" }}
+<!-- Thumbnail size for gallery images -->
+{{ $thumbnailSize := .Get "thumbnailSize" | default "400x300" }}
 
 <!-- Text in the lightbox, either index on a piture or fetched from long_list [Name1, Name2, Exif1, Exif2] -->
 {{ $showAlt := .Get "showAlt" | default false }}
@@ -26,37 +28,49 @@
     {{ range $index, $image := $imageFiles }}
       <li class="gallery-item">
         {{ $baseName := path.BaseName $image.Name }}
-        <img src="{{ $image.RelPermalink }}" alt="{{ with index $captions $baseName}}{{ . }}{{else}}{{ $baseName }}{{ end }}"
-        class='clickable-image' data-gallery-id="{{ $uniqueID }}" loading="{{ if gt $index 5 }}lazy{{ else }}eager{{ end }}" />
+        {{ $thumbnail := $image.Fit $thumbnailSize }}
+        <img src="{{ $thumbnail.RelPermalink }}" 
+             alt="{{ with index $captions $baseName}}{{ . }}{{else}}{{ $baseName }}{{ end }}"
+             class='clickable-image' 
+             data-gallery-id="{{ $uniqueID }}" 
+             data-full-src="{{ $image.RelPermalink }}"
+             loading="{{ if gt $index 5 }}lazy{{ else }}eager{{ end }}" />
       </li>
     {{ end }}
 </ul>
 
 <style>
   .gallery_new {
-    column-count: 1;
-    column-gap: {{ $gap }}px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: {{ $gap }}px;
     margin: 0;
     padding: 0;
     width: 100%;
   }
   .gallery-item {
     list-style-type: none;
-    display: inline-block;
-    width: 100%;
-    padding-bottom: {{ $gap }}px;
-    break-inside: avoid;
+    flex: 1 1 100%;
+    max-width: 100%;
   }
   .gallery-item img {
     width: 100%;
     height: auto;
     cursor: pointer;
+    border-radius: 4px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: block;
+  }
+  .gallery-item img:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 
 
   @media (min-width: 1000px) {
-      .gallery_new {
-        column-count: {{ $columns }};
+      .gallery-item {
+        flex: 1 1 calc((100% - {{ $gap }}px * ({{ $columns }} - 1)) / {{ $columns }});
+        max-width: calc((100% - {{ $gap }}px * ({{ $columns }} - 1)) / {{ $columns }});
       }
     }
 
@@ -188,7 +202,7 @@
 
           // create a new image element inside the container
           const img = document.createElement('img');
-          img.src = image.src;
+          img.src = image.dataset.fullSrc || image.src;
 
           // Add alt text as a caption to the lightbox image
           const caption = document.createElement('div');
@@ -239,7 +253,7 @@
           // Create a function to update the image in the lightbox
           function updateImage(imgIndex) {
             if (imgIndex >= 0 && imgIndex < images.length) {
-              img.src = images[imgIndex].src;
+              img.src = images[imgIndex].dataset.fullSrc || images[imgIndex].src;
               img.alt = images[imgIndex].alt; // Update the alt text
               img.dataset.currentIndex = imgIndex;
               caption.innerHTML = images[imgIndex].alt; // Update the caption text

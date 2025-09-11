@@ -87,6 +87,8 @@ Additional notes:
 
 ## Weak Printed Mounts
 
+## Status Page Node Alignment
+
 ## Policy-based Airgap
 
 ## Wireguard VPN
@@ -97,15 +99,5 @@ What wasn't simple was debugging the problem. I had to lug the board full of jun
 I started to play with this down in the lab, ultimately getting wireguard set up on the firewall, but failed to properly route traffic through it. This resulted in an even worse hack: dropping the uplink down into the [switch](https://labinator.bitnebula.com/docs/layout/#switch) so I could access the firewall from the inside - oops! No worries. I got it fixed again before I left town, but have yet to get back to it.
 
 
-## Done - Add Load
-A lab that allows you to stand up Kubernetes clusters is cool - but you kinda want to see Kubernetes do something other than monitor itself. To fix this, some simple little [clients](https://github.com/DRuggeri/labinator_chef/tree/main/files/counterclient) and [servers](https://github.com/DRuggeri/labinator_chef/tree/main/files/counterserver) were created as well as a [load manager for labwatch](https://github.com/DRuggeri/labinator_labwatch/commit/0530956c90afbdd6bcf21cb630b071dbe8e415ad) that allows the user to scale up or down the clients and servers dynamically.
-
-Finally - a workload on the platform! Naturally, having information about the workload was nice... but we needed to monitor it, too! This led to the addition of a [load monitor handler](https://github.com/DRuggeri/labinator_labwatch/blob/main/handlers/loadstathandler/handler.go) in labwatch. Awesome!
-
-
-## Done - Status Page Node Alignment
-Although labinator is a board with a bunch of machines with screens bolted to it, it's still tough to see what is *actually going on* after the nodes boot. The [original status page](images/ogstatus.png) displayed on the bottom screen while labs were booting was pretty Spartan at best. It showed the power status of each node, how many network messages (and which type) were found in logs, the total count of logs by type, and the current lab being set up along with how far it has gotten. It was later enhanced to also add which endpoints in the lab were up so I could begin figuring out how to fix the reliablity issues.
-
-This was fine... but we could do better! A [new status page](images/loadstatus.png) that is much more functional was put together. This one shows all the same stuff as the previous status page (except for the power status - you can always see that by looking at the screen on [relayinator](/docs/subprojects/relayinator/)). This page will figure out which lab is currently being run and start laying out the nodes on the screen. As nodes come up, they move from darkened to lightened. This visual is especially nice for VM-based labs where you can see the point after which the hypervisor is up, but before the VMs on the hypervisor start.
-
-All told, this is an improvement for sure, and visual tweaks have been made as I've used it to improve usability. For example, when something changes on the screen, a yellow "flash" pops in the background to draw your eye to what changed.
+## Add Load - Done
+A lab that allows you to stand up Kubernetes clusters is cool - but you kinda want to see Kubernetes do something other than monitor itself. To fix this, some simple little clients and servers were created as well as a [load manager for labwatch](https://github.com/DRuggeri/labinator_labwatch/commit/0530956c90afbdd6bcf21cb630b071dbe8e415ad) that allows the user to scale up or down the clients and servers dynamically.

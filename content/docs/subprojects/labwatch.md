@@ -8,7 +8,7 @@ Labwatch is the main lab controller dude. It has the following responsibilities:
 * Serve the sites for the top touchscreen in Labinator (index and progress)
 * Initiate the execution of a lab based on selections
 * Watch things happening across Labinator
-  * Tailing and distributing Loki logs (websocket)
+  * Tailing and distributing otel collector logs (websocket)
   * Aggregating status and distributing it to clients (websocket)
   * Communicating with [Relayinator](/docs/subprojects/relayinator) to observe/manage power state of the nodes
   * Communicating with [Statusinator](/docs/subprojects/statusinator) to push status and logs to the bottom screen

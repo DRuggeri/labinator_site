@@ -94,7 +94,7 @@ Holster:
   quantity: 1
   prototypes: 1
   content: |-
-    One of the computers sits off to the side (I call it "boss") under the larger [LCD Touch Screens](../lcd-touch-screen).
+    One of the computers sits off to the side (I call it "[Boss](/docs/subprojects/boss)") under the larger [LCD Touch Screens](../lcd-touch-screen).
     Since this machine drives the two monitors above it, and because they are both a fair bit larger than the dimensions of the computer, it was an easy decision to just take the [holster with screen](../holster-with-screen/) model and chop off the "stilts".
     
     With such a simple alteration to an existing design that works well, this only required one prototype to confirm fitments.

@@ -11,4 +11,6 @@ The currently running lab gets a line showing the name, how many hypervisors are
 
 From there, log lines are continuously scrolling as-received by [Labwatch](/docs/subprojects/labwatch/#event-marshalling-and-log-aggregation).
 
+{{<gallery_column folder="images/" randomize=false uniqueID="statusinator" scale=100% columns="4" gap=10 showAlt=true >}}
+
 Additional documentation detailing the main control loop and pictures will come.

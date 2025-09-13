@@ -6,6 +6,8 @@ Code: [https://github.com/DRuggeri/labinator_relayinator/](https://github.com/DR
 
 Relayinator is the enjoining of firmware managing a physical piece of gear (an ESP32-powered board with eight relays) and the hardware build to accomplish managing power status within the lab.
 
+{{<gallery_column folder="images/" randomize=false uniqueID="relayinator" scale=100% columns="4" gap=10 showAlt=true >}}
+
 Physically, Relayinator wraps a [bottom](/docs/models/relayinator-bottom/) and [top](/docs/models/relayinator-top/) 3D print around a [commodity board](/docs/bom/).
 The bottom features holes for standard 5mm x 2.1mm barrel connectors across two rows:
 * Bottom: Direct feed from PSU - always on
@@ -14,5 +16,3 @@ I went through a few designs, but ultimately landed on the bottom ports all bein
 
 The top ports, which are relay-controlled (AKA: switched on/of when I want them to be) connect to the seven nodes of the lab.
 Ports 1 - 6 correspond to Nodes 1 - 6, port 7 is for Boss, and port 8 is free (eventually, it was going to control power to the monitors).
-
-More documentation including wiring diagrams will come

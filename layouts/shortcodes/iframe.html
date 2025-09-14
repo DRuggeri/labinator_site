@@ -1,0 +1,13 @@
+{{- $src := .Get "src" -}}
+{{- $width := .Get "width" | default "100%" -}}
+{{- $height := .Get "height" | default "400px" -}}
+{{- $title := .Get "title" | default "Embedded content" -}}
+
+<iframe 
+  src="{{ $src }}" 
+  width="{{ $width }}" 
+  height="{{ $height }}" 
+  title="{{ $title }}"
+  frameborder="0"
+  allowfullscreen>
+</iframe>

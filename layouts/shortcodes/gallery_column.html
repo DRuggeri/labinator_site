@@ -294,15 +294,43 @@
 
           // listen for click event on the close button to remove the lightbox
           closeButton.addEventListener('click', function() {
+            // Remove keyboard event listener
+            document.removeEventListener('keydown', lightbox.keydownHandler);
             document.body.removeChild(lightbox);
           });
 
           // listen for click event outside of image to remove the lightbox
           lightbox.addEventListener('click', function(event) {
             if (event.target === this) {
+              // Remove keyboard event listener
+              document.removeEventListener('keydown', lightbox.keydownHandler);
               document.body.removeChild(lightbox);
             }
           });
+
+          // Add keyboard navigation for arrow keys
+          function handleKeydown(event) {
+            if (event.key === 'ArrowLeft') {
+              event.preventDefault();
+              const currentIndex = parseInt(img.dataset.currentIndex, 10);
+              const newIndex = (currentIndex - 1 + images.length) % images.length;
+              updateImage(newIndex);
+            } else if (event.key === 'ArrowRight') {
+              event.preventDefault();
+              const currentIndex = parseInt(img.dataset.currentIndex, 10);
+              const newIndex = (currentIndex + 1) % images.length;
+              updateImage(newIndex);
+            } else if (event.key === 'Escape') {
+              event.preventDefault();
+              document.body.removeChild(lightbox);
+            }
+          }
+
+          // Add the keyboard event listener
+          document.addEventListener('keydown', handleKeydown);
+
+          // Store the keyboard handler for cleanup
+          lightbox.keydownHandler = handleKeydown;
 
           // Add an event listener for mousemove on the lightbox container
           lightbox.addEventListener('mousemove', function(event) {

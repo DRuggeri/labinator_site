@@ -19,7 +19,7 @@ The images trace cables with the color key of <span style="color:red">power</spa
 {{<image path="images/layout-export-wally.png" height=250 class="layoutpic">}}
 * IP: 192.168.122.1
 * Power: 5v port 1
-* Net: Port 1
+* Net: Port 8
 * OS: OpenWRT
 * Location: Under top touchscreen
 {{% details title="Configuration" %}}
@@ -223,7 +223,7 @@ reboot -f
 * IP: 192.168.122.3
 * Power: 12v port 10
 * Relay: Port 7
-* Net: Port 2
+* Net: Port 7
 * OS: Debian GNU Linux
 * Location: Under bottom touchscreen
 {{% details title="Configuration" %}}
@@ -277,7 +277,7 @@ reboot -f
 * IP: 192.168.122.11
 * Power: 12v Port 4
 * Relay: Port 1
-* Net: Port 3
+* Net: Port 6
 
 
 ### Node 2
@@ -285,7 +285,7 @@ reboot -f
 * IP: 192.168.122.12
 * Power: 12v Port 5
 * Relay: Port 2
-* Net: Port 4
+* Net: Port 5
 
 
 ### Node 3
@@ -293,7 +293,7 @@ reboot -f
 * IP: 192.168.122.13
 * Power: 12v Port 6
 * Relay: Port 3
-* Net: Port 5
+* Net: Port 4
 
 
 ### Node 4
@@ -301,7 +301,7 @@ reboot -f
 * IP: 192.168.122.14
 * Power: 12v Port 7
 * Relay: Port 4
-* Net: Port 6
+* Net: Port 3
 
 
 ### Node 5

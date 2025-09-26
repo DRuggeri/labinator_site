@@ -2,7 +2,9 @@
 Title: Things To Improve
 ---
 
-## PXE and iPXE
+## TODO
+
+### PXE and iPXE
 For this combination of gear, PXE and iPXE booting leaves a lot to be desired.
 At the start of each lab, it takes something like 30 seconds to initialize PXE and to chain boot into iPXE.
 iPXE then takes about 30 seconds to configure.
@@ -11,7 +13,7 @@ A 1 minute delay to boot nodes that start in less than a minute sucks.
 So why even use network booting?
 It boils down to solving the "moment 0" node bootstrapping problems.
 
-### Hardware
+#### Hardware
 Let's ignore virtual machines for a moment.
 We have the issue of needing to boot our cheap gear with a Talos disk image *OR* a hypervisor disk image depending on the lab being launched.
 There are limitations at hand as we noodle on how to approach this.
@@ -48,7 +50,7 @@ Initial [experiments with matchbox](https://github.com/DRuggeri/labinator_chef/b
 Instead, chainloading PXE to [iPXE](https://ipxe.org/) and [tossing iPXE scripts in a known HTTP server location](https://ipxe.org/) was all that was needed.
 
 
-### Software
+#### Software
 This one is less of an issue, but very much worth documenting/noting.
 When a Talos node boots up, it must be fed configuration information.
 While the tiny disk image contains everything needed to become a control plane or worker node, it still needs to know information about the cluster that is forming.
@@ -77,21 +79,19 @@ Additional notes:
 * You can ALSO pass talos configuration in via the hypervisor. In testing on vSphere, this works fantastically... but it was a disaster when I tried to do this with KVM and CoreOS (why isn't [this](https://github.com/coreos/ignition/blob/2ef5a3a86fa099a19ccae91dba08a60492c90673/internal/providers/qemu/qemu_fwcfg.go#L100) documented somewhere?!?!), so I assumed Talos would suffer the same quadratic time fate reading "firmware". It would be good to test this for VMs since I flipped from `--virt-type qemu` to `--virt-type kvm` in Labinator.
 
 
-## Power Buttons
+### Power Buttons
 
-## Code Quality
+### Code Quality
 
-## VM Resilience
+### VM Resilience
 
-## Labinator Is Too Big
+### Labinator Is Too Big
 
-## Weak Printed Mounts
+### Weak Printed Mounts
 
-## Status Page Node Alignment
+### Policy-based Airgap
 
-## Policy-based Airgap
-
-## Wireguard VPN
+### Wireguard VPN
 It's really cool to have labinator out and about doing stuff, but shortly after it went live, an unanticipated failure occurred: It was left off for a couple of days (unbelievable, right?!?). The surprise came when labinator was powered back up again: The [statusinator](/docs/subprojects/statusinator/) wasn't updating logs and counts. The root cause was simple to figure out (labinator uses [certs that are only valid for 24 hours](https://github.com/DRuggeri/labinator_chef/blob/main/recipes/step-ca.rb), so we just needed to [make sure the certs were still good any time a service using them was started](https://github.com/DRuggeri/labinator_chef/commit/81c179a0dcbe25efa9d220ae5541f9b6e06bdceb)).
 
 What wasn't simple was debugging the problem. I had to lug the board full of junk back home, plug it into the network and hop into take a look. That's no good. Instead, an enhancement to Labinator for the future will be to configure [the firewall](/docs/layout/#wally) to establish a VPN tunnel, when network is available, to a server that I can use to remotely access labinator.
@@ -99,5 +99,25 @@ What wasn't simple was debugging the problem. I had to lug the board full of jun
 I started to play with this down in the lab, ultimately getting wireguard set up on the firewall, but failed to properly route traffic through it. This resulted in an even worse hack: dropping the uplink down into the [switch](https://labinator.bitnebula.com/docs/layout/#switch) so I could access the firewall from the inside - oops! No worries. I got it fixed again before I left town, but have yet to get back to it.
 
 
-## Add Load - Done
+## Done
+
+### Add Load
 A lab that allows you to stand up Kubernetes clusters is cool - but you kinda want to see Kubernetes do something other than monitor itself. To fix this, some simple little clients and servers were created as well as a [load manager for labwatch](https://github.com/DRuggeri/labinator_labwatch/commit/0530956c90afbdd6bcf21cb630b071dbe8e415ad) that allows the user to scale up or down the clients and servers dynamically.
+
+### Expired Certs?!
+
+### Status Page Node Alignment
+
+### Boot Up Reliability
+Things to document:
+* Network interrupts are soft IRQs
+* Why [this guy](https://github.com/DRuggeri/labinator_labwatch/commit/abd297364116b1b5a58b26e686eb20d623afbd30) mattered more than you'd expect
+* Hardware offloading
+* Old iPXE == bad iPXE... and accidentally realizing that
+
+### Log Stream Reliability
+Things to document:
+* Noticing unreliability
+* Noticing CPU cost of Loki
+* Designing for speed/SSD preservation
+* [Initial commit](https://github.com/DRuggeri/labinator_labwatch/commit/7edbec684939c268aa4950eb5fc0df4095253092)

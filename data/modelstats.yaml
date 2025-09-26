@@ -349,3 +349,57 @@ Platform Stand:
     Given the size of these supports, amount of infill needed to be robust enough to support the weight of the lab, and overall time to print it, I didn't run any prototypes.
     The design was spot on, so that was great... but the print of the second leg failed about 30 minutes before finishing.
     Oh well! I'm not going to wait another day just for the unseen edge of the bracket to look good!
+
+Carry Handle:
+  time: 03:23:00
+  filament: 65.6
+  quantity: 1
+  prototypes: 2
+  content: |-
+    First, take a look at that print time!
+    Much shorter than the others thanks to finally upgrading my 3D printing rig to a [Creality K2 Plus](https://www.creality.com/products/creality-k2-plus-3d-printer)!
+    This thing is a beast and prints at a speed that is way faster than my old Ender 3 Pro (this model would have taken about 13.5 hours!), but that's an aside...
+
+    Labinator is a [bit bigger](/docs/improve/#labinator-is-too-big) than I originally figured it would be and can be a hair unwieldy to carry around.
+    To address this, I originally bought a hugemongous spinner luggage set, but the it just didn't fit into the suitcase by about 1/2".
+    So - I had to think of how to lug this thing around a la plan be.
+
+    I settled on a carry handle design that could snap on/off of the main board.
+    I started the design first by figuring out how to create [the lug](../mounting-lug) to be strong enough and built this handle around that.
+    The design itself is fairly simple - a rounded rectangle with a large hole in the middle for fingers to grab onto.
+    Like most other things in labinator, I gave the edges a bevel because it just looks nicer... but this leads to a more practical design since it's easier to grab and doesn't dig into your fingers while holding.
+    I knew roughly what size I needed the opening to be but the overall size of the handle ended up being driven more by ensuring there was enough material for the final design to be strong enough.
+    At the same time, I also knew that I had to design to orient the print such that the layer lines ran along the length of the handle.
+    This is *vital* because 3D prints are weakest along the layer lines and the tensile strength of the handle is critical to its function.
+
+    I kind of cheated when designing the prototypes for this one.
+    Rather than printing a full-size handle, I just printed a small section of the handle that included encasement of the lug until things fit the way I wanted and it all snapped together.
+    This took about three or four tries, which aligns with the usual number of protoypes needed for a functional thing.
+    Once that was buttoned up, I enhanced the design to include the actual handle.
+    This would've worked perfectly on the first try... if the filament didn't snap in the bowden tube about half way through the print.
+    Since I was away from the machine when it happened, I didn't catch it and shut the machine down as it sat there prompting me to replace the filament.
+    Oops.
+    So, kicking it off again it, it printed perfectly fine (no filament breakage this time) and the handle fit perfectly on the first try.
+
+Mounting Lug:
+  time: 00:17:24
+  filament: 3.53
+  quantity: 1
+  prototypes: 3
+  content: |-
+    [Carry Handles](../carry-handle) are great, but how do you mount them to the main board?
+    With a mounting lug, of course!
+    This simple little design is a little bit more than just a simple block with some holes in it.
+    Not only does the lug need to be strong enough to hold the weight of the lab, but it also needs to be designed to allow the handle to snap on and off.
+    To satisfy the first goal, I couldn't deny the strength of good old fashioned metal.
+    The lug has two holes for M6 bolts (which I just so happened to have handy since that's the size of rack mount screws I use) to pass through the lug and bite into receiving aluminum nuts that pass through the board.
+    Hitting the second goal meant that I needed the lug to allow a slide on/off design leading to the taper you see in the model.
+
+    The taper turned out to be pretty important because it allows the handle to slide and clip on without needing double the length of the mounting lug open inside the handle.
+    The lug is also angled inward from front to back which serves to "pull" the handle tight against the board when mounted leading to a stronger overall connection.
+    This angle also prevents the handle from just slipping off vertically.
+
+    The design itself was pretty simple, but I did have to noodle a bit on how to get the taper and the angle just right.
+    Like most other things, it took a few prototypes to get it right... and I realized during prototyping that my original goal of creating two lugs and making a U-shaped handle.
+    Just wouldn't work because of the bolt heads on the back of the board interfering.
+    So, we're just gonna have to YOLO it with a single lug in the center of the board!

@@ -17,4 +17,5 @@ After launching Labinator, some stuff didn't work well or at all (notably: the f
 * Add the ability to inject network failures into the lab for optimal chaos
 * Create a [Kubernetes watcher](https://github.com/DRuggeri/labinator_labwatch/commit/1894b9112b614404f0732d5cb675c9644abdfb45) so we can see pod information (like where they run)
 * Stitch labwatch [directly into the OTel collector log stream](improve/#log-stream-reliability) rather than Loki
-* Redesign the power wire [top](../models/power-wire-cover-top/) and [bottom](models/power-wire-cover-bottom/) mounts because the stupid thing kept [falling off](https://www.youtube.com/watch?v=3m5qxZm_JqM)
+* Redesign the power wire [top](../models/power-wire-cover-top/) and [bottom](models/power-wire-cover-bottom/) mounts because the stupid [front kept falling off](https://www.youtube.com/watch?v=3m5qxZm_JqM)
+* Add a watcher for LAN/WAN in and out packets and push the stats to [statusinator](../subprojects/statusinator/)

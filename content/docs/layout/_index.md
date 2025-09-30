@@ -43,6 +43,10 @@ if [ `opkg list-installed | grep -c prometheus` -lt 1 ];then
   opkg install prometheus-node-exporter-lua prometheus-node-exporter-lua-nat_traffic prometheus-node-exporter-lua-netstat prometheus-node-exporter-lua-openwrt
 fi
 
+if [ `opkg list-installed | grep -c luci-mod-rpc` -lt 1 ];then
+  opkg install luci-mod-rpc
+fi
+
 # Login
 uci set dropbear.@dropbear[0].PasswordAuth='on'
 uci set dropbear.@dropbear[0].RootPasswordAuth='on'
@@ -80,6 +84,43 @@ uci set firewall.@zone[1].input='DROP'
 uci set firewall.@zone[1].output='ACCEPT'
 uci set firewall.@zone[1].forward='DROP'
 uci set firewall.@zone[1].log='1'
+
+
+uci set network.wwan=interface
+uci set network.wwan.proto='dhcp'
+
+uci set firewall.wwan=zone
+uci set firewall.wwan.name='wwan'
+uci set firewall.wwan.masq='1'
+uci set firewall.wwan.log='1'
+uci set firewall.wwan.input='DROP'
+uci set firewall.wwan.output='ACCEPT'
+uci set firewall.wwan.forward='DROP'
+uci set firewall.wwan.network='wwan'
+
+uci set wireless.radio0=wifi-device
+uci set wireless.radio0.type='mac80211'
+uci set wireless.radio0.path='platform/usbhost/fd000000.usb/xhci-hcd.0.auto/usb1/1-1/1-1:1.0'
+uci set wireless.radio0.channel='auto'
+uci set wireless.radio0.band='5g'
+uci set wireless.radio0.country='US'
+uci set wireless.radio0.mode='sta'
+uci set wireless.radio0.cell_density='1'
+uci del wireless.radio0.disabled
+uci del wireless.radio0.htmode
+
+uci set wireless.wifi0=wifi-iface
+uci set wireless.wifi0.device='radio0'
+uci set wireless.wifi0.mode='sta'
+uci set wireless.wifi0.network='wwan'
+uci set wireless.wifi0.ifname='wifi0'
+uci set wireless.wifi0.encryption='psk2'
+uci set wireless.wifi0.ssid='Danimal-Guest'
+uci set wireless.wifi0.key='REDACTED'
+### Restart radio0
+
+uci set network.wwan.device='wifi0'
+### Restart wwan network interface
 
 # Allow Web UI on all interfaces
 uci add firewall rule
@@ -226,6 +267,20 @@ reboot -f
 * Net: Port 7
 * OS: Debian GNU Linux
 * Location: Under bottom touchscreen
+{{% details title="Ports" %}}
+* USB side, top: USB Hub
+  * Hub port 1: Wally FTDI (top port)
+  * Hub port 2: Relayinator FTDI
+  * Hub port 3: Statusinator USB
+  * Hub port 4: Power for VGA -> HDMI adapter (bottom port)
+* USB side, bottom: TP-Link UE306 GBe
+* USB top, top: Top screen touch interface
+* USB top, bottom: Bottom screen touch interface
+* Serial:
+  * Wally: /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A5069RR4-if00-port0
+  * Relayinator: /dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A50285BI-if00-port0
+  * Statusinator: /dev/serial/by-id/usb-Espressif_USB_JTAG_serial_debug_unit_98:3D:AE:E9:29:08-if00
+{{% /details %}}
 {{% details title="Configuration" %}}
 * Exposed Ports
   * 22/tcp: ssh
